@@ -1,20 +1,22 @@
 import { Metadata } from "next"
-import { Button } from "components/Button/Button"
-
-import { LP_GRID_ITEMS } from "lp-items"
+import Image from "next/image"
+import { FaWhatsapp } from "react-icons/fa"
 
 export const metadata: Metadata = {
-  title: "Next.js Enterprise Boilerplate",
+  title: " Solimoderm | Muebles y Accesorios Premium para Baño y Cocina",
+  description: "Solimoderm es una empresa dedicada a la venta de muebles y accesorios premium para baño y cocina.",
   twitter: {
     card: "summary_large_image",
   },
   openGraph: {
-    url: "https://next-enterprise.vercel.app/",
+    url: "https://solimoderm.com",
+    title: "Solimoderm | Muebles y Accesorios Premium para Baño y Cocina",
+    description: "Solimoderm es una empresa dedicada a la venta de muebles y accesorios premium para baño y cocina.",
     images: [
       {
         width: 1200,
         height: 630,
-        url: "https://raw.githubusercontent.com/Blazity/next-enterprise/main/.github/assets/project-logo.png",
+        url: "/img/solimoderm.png",
       },
     ],
   },
@@ -23,44 +25,57 @@ export const metadata: Metadata = {
 export default function Web() {
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="mx-auto grid max-w-(--breakpoint-xl) px-4 py-8 text-center lg:py-16">
-          <div className="mx-auto place-self-center">
-            <h1 className="mb-4 max-w-2xl text-4xl leading-none font-extrabold tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-              Next.js Enterprise Boilerplate
-            </h1>
-            <p className="mb-6 max-w-2xl font-light text-gray-500 md:text-lg lg:mb-8 lg:text-xl dark:text-gray-400">
-              Jumpstart your enterprise project with our feature-packed, high-performance Next.js boilerplate!
-              Experience rapid UI development, AI-powered code reviews, and an extensive suite of tools for a smooth and
-              enjoyable development process.
-            </p>
-            <Button href="https://github.com/Blazity/next-enterprise" className="mr-3">
-              Get started
-            </Button>
-            <Button
-              href="https://vercel.com/new/git/external?repository-url=https://github.com/Blazity/next-enterprise"
-              intent="secondary"
+      <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6">
+        <div className="text-center">
+          {/* Logotipo en grande */}
+          <div className="mb-6">
+            <Image
+              src="/img/solimoderm.png"
+              alt="Logotipo"
+              width={700}
+              height={700}
+              className="mx-auto w-full sm:max-w-md md:max-w-lg"
+            />
+          </div>
+
+          <h1 className="text-3xl font-bold text-[#18446E] sm:text-5xl md:text-6xl lg:text-7xl">
+            🚧 ¡Estamos renovando nuestra página!
+          </h1>
+
+          {/* Botón de WhatsApp */}
+          <div className="flex flex-col items-center">
+            <p className="mt-4 text-lg text-gray-600 sm:text-xl">🚀 Escríbenos para cualquier consulta o cotización.</p>
+            <a
+              href="https://wa.me/5213317943279?text=👋Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20Productos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 flex w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3"
             >
-              Deploy Now
-            </Button>
+              <FaWhatsapp className="mr-2 text-xl" />
+              WhatsApp
+            </a>
+          </div>
+          {/* Ubicación en Google Maps */}
+          <div className="mt-6 flex flex-col justify-center">
+            <p className="mt-4 mb-10 text-lg text-gray-600 sm:text-xl">
+              📍 Visítanos en nuestra ubicación para más información y asistencia personalizada.
+            </p>
+
+            {/* Ubicación en Google Maps */}
+            <div className="flex justify-center">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.988658740469!2d-103.32237479999999!3d20.670040399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b187b158b9a5%3A0xe3ba18f338334a1e!2sAcabados%20soli-moderm!5e0!3m2!1ses-419!2smx!4v1738761962999!5m2!1ses-419!2smx"
+                width="80%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
-      </section>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-8 sm:py-16 lg:px-6">
-          <div className="justify-center space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3">
-            {LP_GRID_ITEMS.map((singleItem) => (
-              <div key={singleItem.title} className="flex flex-col items-center justify-center text-center">
-                <div className="bg-primary-100 dark:bg-primary-900 mb-4 flex size-10 items-center justify-center rounded-full p-1.5 text-blue-700 lg:size-12">
-                  {singleItem.icon}
-                </div>
-                <h3 className="mb-2 text-xl font-bold dark:text-white">{singleItem.title}</h3>
-                <p className="text-gray-500 dark:text-gray-400">{singleItem.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      </div>
     </>
   )
 }
