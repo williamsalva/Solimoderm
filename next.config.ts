@@ -5,6 +5,9 @@ import { env } from "./env.mjs"
 
 const config: NextConfig = {
   reactStrictMode: true,
+  compiler: {
+    removeConsole: false,
+  },
   logging: {
     fetches: {
       fullUrl: true,
@@ -16,6 +19,9 @@ const config: NextConfig = {
     { source: "/health", destination: "/api/health" },
     { source: "/ping", destination: "/api/health" },
   ],
+  images: {
+    domains: ["tailwindui.com"],
+  },
 }
 
 export default env.ANALYZE ? withBundleAnalyzer({ enabled: env.ANALYZE })(config) : config
