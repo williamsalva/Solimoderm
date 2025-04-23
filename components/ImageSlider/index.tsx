@@ -94,7 +94,7 @@ export const ImageSlider = () => {
           {infiniteImages.map((image, index) => (
             <Image
               key={index}
-              src={image.src}
+              src={image?.src || ""}
               alt={`Slider Image ${index}`}
               layout="responsive"
               width={300}
