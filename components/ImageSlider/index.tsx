@@ -23,7 +23,7 @@ const images: ImageData[] = [
   },
 ];
 
-export default function ImageSlider(): JSX.Element {
+export const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(1); // Start at 1 for the first "real" image
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -109,3 +109,5 @@ export default function ImageSlider(): JSX.Element {
     </div>
   );
 }
+
+export default ImageSlider;
