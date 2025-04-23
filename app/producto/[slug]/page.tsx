@@ -1,11 +1,10 @@
-import React from "react"
-import { GetStaticPaths, GetStaticProps } from "next"
 
-import listProducts from "../../../data/listProducts"
 import Image from "next/image"
+import React from "react"
 
-import Layout from "../../../components/Layout"
 import { FaWhatsapp } from "react-icons/fa"
+import Layout from "../../../components/Layout"
+import listProducts from "../../../data/listProducts"
 
 interface Product {
   id: number
@@ -15,16 +14,16 @@ interface Product {
   url: string
 }
 
-export async function generatiStaticParams() {
+export async function generateStaticParams() {
   const paths = listProducts.map((product) => ({
     params: { slug: product.url },
   }))
 
-  return { paths, fallback: true }
+  return paths
 }
 
-const ProductDetail = async ({ params }: { params: Promise<{ slug: string }> }) => {
-  const { slug } = await params
+const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) => {
+  const { slug } =  await params
   console.log(listProducts)
   console.log(slug)
   const product = listProducts.find((product) => product.url === slug)

@@ -1,4 +1,5 @@
 "use client"
+import { url } from "inspector"
 import Image from "next/image"
 import React, { useState } from "react"
 import { FaArrowRight } from "react-icons/fa"
@@ -15,10 +16,11 @@ const CardProducts = () => {
   }
 
   const products = [
-    { name: "Espejos", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/espejoProd.png" },
-    { name: "Tarjas", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/tarjaProd.png" },
-    { name: "Muebles de Baño", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/mueblesProd.png" },
-    { name: "Ovalines", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/ovalinProd.png" },
+    { name: "Espejos", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/espejoProd.png", url: "/espejos" },
+    { name: "Tarjas", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/tarjaProd.png", url: "/tarjas" },
+    { name: "Muebles de Baño", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/mueblesProd.png", url: "/muebles-de-bano" },
+    { name: "Ovalines", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/ovalinProd.png", url: "/ovalines" },
+    // { name: "Repisas", bgColor: "#19456E", hoverBgColor: "#7FA6C1", imgSrc: "/img/ovalinProd.png", url: "/repisas" },
   ]
 
   return (
@@ -38,6 +40,7 @@ const CardProducts = () => {
               }}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
+              onClick={() => window.location.href = product.url}
             >
                 <h3
                 className={`absolute top-4 left-4 text-7xl font-bold ${
