@@ -10,8 +10,8 @@ export default function CallToAction() {
   return (
     <section className="flex flex-col items-center justify-between rounded-2xl bg-gray-100 p-8 md:flex-row">
       {/* Texto e Información */}
-      <div className="ml-10 text-center md:w-1/2 md:text-left">
-        <h2 className="mb-4 text-5xl font-bold">Conéctate con Nosotros en un Click! 🚀</h2>
+      <div className="sm:ml-10 text-center md:w-1/2 md:text-left">
+        <h2 className="mb-4 text-4xl sm:text-5xl font-bold">Conéctate con Nosotros en un Click! 🚀</h2>
         <p className="mb-6 text-xl text-gray-500">
           Conviértete en distribuidor o consigue los mejores productos para tu hogar al mejor precio. ¡Contáctanos y
           cotiza sin compromiso!

@@ -30,15 +30,18 @@ const UsDifferent: React.FC = () => {
 
   return (
     <section className="rounded-3xl p-10">
-      <h3 className="mt-20 text-center text-7xl font-bold">¿Por qué somos diferentes?</h3>
-      <div style={{ display: "flex", justifyContent: "space-around", padding: "4rem" }}>
-        {columns.map((column, index) => (
-          <div key={index} style={{ textAlign: "center", width: "30%", margin: "1rem" }}>
-            <div style={{ fontSize: "3em" }}>{column.icon}</div>
-            <h3 className="mb-2 text-2xl font-bold">{column.title}</h3>
-            <p className="text-lg text-gray-500">{column.description}</p>
-          </div>
-        ))}
+      <h3 className="mt-20 text-center text-4xl font-bold sm:text-7xl">¿Por qué somos diferentes?</h3>
+      <div className="flex flex-wrap justify-center gap-8 p-4 sm:justify-around sm:p-10">
+      {columns.map((column, index) => (
+        <div
+        key={index}
+        className="text-center w-full sm:w-1/3 sm:mx-4"
+        >
+        <div className="text-5xl sm:text-6xl">{column.icon}</div>
+        <h3 className="mb-2 text-xl font-bold sm:text-2xl">{column.title}</h3>
+        <p className="text-base text-gray-500 sm:text-lg">{column.description}</p>
+        </div>
+      ))}
       </div>
     </section>
   )

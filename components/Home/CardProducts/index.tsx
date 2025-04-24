@@ -24,8 +24,8 @@ const CardProducts = () => {
   ]
 
   return (
-    <section className="py-20">
-      <h2 className="mb-8 text-center text-7xl font-bold">Nuestros Productos</h2>
+    <section className="py-10 sm:py-20">
+      <h2 className="mb-8 text-center text-5xl font-bold sm:text-7xl">Nuestros Productos</h2>
       <p className="text-center text-gray-600">
         Descubre los productos que tenemos para ti. Diseños exclusivos y calidad inigualable.
       </p>
@@ -43,15 +43,21 @@ const CardProducts = () => {
               onClick={() => window.location.href = product.url}
             >
                 <h3
-                className={`absolute top-4 left-4 text-7xl font-bold ${
+                className={`absolute text-4xl bottom-1 left-4  font-bold sm:top-4 sm:text-7xl ${
                   hoveredIndex === index ? ` text-primary-500` : "text-white"
                 }`}
                 >
                 {product.name}
                 </h3>
-              {product.imgSrc ? (
-              <Image src={product.imgSrc} alt={product.name} width={350} height={350} className="absolute right-10" />
-              ) : null}
+                {product.imgSrc ? (
+                <Image
+                src={product.imgSrc}
+                alt={product.name}
+                width={300}
+                height={300}
+                className="absolute right-4 bottom-20 sm:right-10 sm:bottom-auto"
+                />
+                ) : null}
               <button className="absolute right-4 bottom-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white hover:bg-gray-600">
               <FaArrowRight />
               </button>
