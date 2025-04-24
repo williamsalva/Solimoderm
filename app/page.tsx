@@ -1,10 +1,9 @@
 import { Metadata } from "next"
-import Image from "next/image"
-import Layout from "components/Layout"
+import CallToAction from "components/Home/CallToAction"
 import CardProducts from "components/Home/CardProducts"
 import Hero from "components/Home/Hero"
 import UsDifferent from "components/Home/UsDifferent"
-import CallToAction from "components/Home/CallToAction"
+import Layout from "components/Layout"
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
