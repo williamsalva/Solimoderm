@@ -47,7 +47,7 @@ export const ImageSlider = () => {
     if (!isHovered) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 6000);
+      }, 4000);
 
       return () => clearInterval(interval);
     }
@@ -104,8 +104,6 @@ export const ImageSlider = () => {
           ))}
         </div>
       </div>
-      {/* Optional navigation buttons */}
-      
     </div>
   );
 }

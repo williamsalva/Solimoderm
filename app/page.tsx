@@ -6,7 +6,7 @@ import UsDifferent from "components/Home/UsDifferent"
 import Layout from "components/Layout"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("http://solimoderm.com"),
   title: "Solimoderm | Muebles y Accesorios Premium para Baño y Cocina",
   description: "Solimoderm es una empresa dedicada a la venta de muebles y accesorios premium para baño y cocina.",
   twitter: {

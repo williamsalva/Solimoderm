@@ -1,12 +1,12 @@
 const espejosProducts: _Product[] = [
-  {
-    id: 301,
-    name: "Espejo Rectangular",
-    url: "espejo-rectangular",
-    image: "/img/espejos/ESPEJO-RECTANGULAR.png",
-    size: "60 cm x 80 cm",
-    description: `Espejo rectangular de 60x80 cm, ideal para baños y espacios modernos. Su diseño elegante y funcional aporta luminosidad y amplitud a cualquier ambiente. Fabricado con materiales de alta calidad, es perfecto para complementar tu decoración y crear un ambiente acogedor.`,
-  },
+  // {
+  //   id: 301,
+  //   name: "Espejo Rectangular",
+  //   url: "espejo-rectangular",
+  //   image: "/img/espejos/ESPEJO-RECTANGULAR.png",
+  //   size: "60 cm x 80 cm",
+  //   description: `Espejo rectangular de 60x80 cm, ideal para baños y espacios modernos. Su diseño elegante y funcional aporta luminosidad y amplitud a cualquier ambiente. Fabricado con materiales de alta calidad, es perfecto para complementar tu decoración y crear un ambiente acogedor.`,
+  // },
   //   {
   //     id: 302,
   //     name: "Espejo biled Soli-joya",

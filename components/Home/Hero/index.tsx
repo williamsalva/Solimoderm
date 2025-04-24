@@ -1,4 +1,3 @@
-import Image from "next/image"
 import React from "react"
 import ImageSlider from "components/ImageSlider"
 
@@ -14,14 +13,6 @@ const Hero = () => {
         
       </div>
       <div className="w-1/2">
-        {/* <Image
-          src="/img/hero-ovalin.png"
-          alt="Descripción de la imagen"
-          layout="responsive"
-          width={300}
-          height={100}
-          className="rounded-tr-3xl rounded-bl-3xl"
-        /> */}
         <ImageSlider />
       </div>
     </div>
