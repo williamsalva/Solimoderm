@@ -59,7 +59,7 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
             />
           </div>
           <div className="mt-20 sm:ml-10 flex-1 pl-5">
-            <h1 className="mb-4 text-6xl font-bold">{product.name}</h1>
+            <h1 className="mb-4 text-4xl sm:text-6xl font-bold">{product.name}</h1>
             <p className="mb-4 text-2xl sm:text-xl ">{product.description}</p>
             <a
               href={`https://wa.me/5213317943279?text=Estoy%20interesado%20en%20el%20producto%20${product.name}%20${product.url}`}
