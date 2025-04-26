@@ -47,8 +47,8 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
   return (
     <Layout>
       <section className="container mx-auto mt-20 min-h-82 py-20">
-        <div className="flex flex-row p-5">
-          <div className="flex-1 overflow-hidden [clip-path:inset(10px)]">
+        <div className="flex flex-col sm:flex-row p-5">
+          <div className=" w-full sm:flex-1 overflow-hidden [clip-path:inset(10px)]">
             <Image
               className="rounded-lg"
               src={product.image}
@@ -58,16 +58,16 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
               height={500}
             />
           </div>
-          <div className="mt-20 ml-10 flex-1 pl-5">
+          <div className="mt-20 sm:ml-10 flex-1 pl-5">
             <h1 className="mb-4 text-6xl font-bold">{product.name}</h1>
-            <p className="mb-4">{product.description}</p>
+            <p className="mb-4 text-2xl sm:text-xl ">{product.description}</p>
             <a
               href={`https://wa.me/5213317943279?text=Estoy%20interesado%20en%20el%20producto%20${product.name}%20${product.url}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="mt-6 flex w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3">
-                <FaWhatsapp className="mr-2 text-xl" />
+              <button className="mt-6 flex text-xl  sm:text-2xl w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3">
+                <FaWhatsapp className="mr-2 text-4xl" />
                 Comprar en WhatsApp
               </button>
             </a>
@@ -76,7 +76,7 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
       </section>
       <section className="m-15 rounded-3xl bg-gray-100 p-10">
         <div className="container mx-auto my-20 flex flex-col justify-center">
-          <h3 className="mt-4 mb-20 text-center text-6xl font-bold sm:text-6xl">Productos Relacionados</h3>
+          <h3 className="mt-4 mb-20 text-center text-3xl font-bold sm:text-6xl">Productos Relacionados</h3>
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {relatedProducts.map((product) => (
               <a key={product.id} href={`producto/${product.url}`} className="group relative">
