@@ -33,7 +33,7 @@ export default function Web() {
         <Hero />
       </div>
       <section style={{ backgroundColor: "#F4FAFF", margin: "50px", borderRadius: "50px" }}>
-        <div className="container mx-auto">
+        <div className=" mx-auto">
           <CardProducts />
         </div>
       </section>

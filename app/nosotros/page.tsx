@@ -12,9 +12,18 @@ const nosotros = () => {
   return (
     <Layout>
       <section className="container mx-auto mt-20 min-h-82 py-20">
-        <h1 className="text-center text-8xl font-bold">Nosotros</h1>
-        <div className="my-20 flex items-center justify-center">
-          <div className="w-1/2">
+        <h1 className="text-center text-6xl sm:text-8xl font-bold">Nosotros</h1>
+        <div className="my-20 flex flex-col items-center justify-center p-10 md:flex-row">
+          <div className="w-full md:w-1/2 sm:mr-5">
+            <Image
+              src="/img/solimoderm.png"
+              alt="Descripción de la imagen"
+              className="mb-5 w-full rounded-tr-3xl rounded-bl-3xl md:mb-0"
+              width={500}
+              height={500}
+            />
+          </div>
+          <div className="w-full md:w-1/2">
             <h2 className="mb-10 text-4xl font-bold">¿Quiénes somos?</h2>
             <p className="text-gray-600">
               Somos una empresa dedicada a la venta de muebles y accesorios premium para baño y cocina. Importamos
@@ -28,15 +37,6 @@ const nosotros = () => {
               productos en México y nuestro compromiso con el servicio al cliente garantizan el éxito y posicionamiento
               de las marcas que representamos.
             </p>
-          </div>
-          <div className="w-1/2 items-center justify-center">
-            <Image
-              src="/img/solimoderm.png"
-              alt="Descripción de la imagen"
-              className="rounded-tr-3xl rounded-bl-3xl"
-              width={500}
-              height={500}
-            />
           </div>
         </div>
         <div className="my-20 flex flex-col items-center justify-center">
@@ -59,7 +59,7 @@ const nosotros = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center p-10">
           <h2 className="mt-14 mb-6 text-center text-6xl leading-none font-bold text-[#19456E]">Valores</h2>
           <p className="text-center text-lg text-[#19456E]">
             Los valores sobre los que se sostiene esta estrategia de crecimiento y diferenciación en el servicio son:

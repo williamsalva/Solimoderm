@@ -7,9 +7,9 @@ const DistribuidoresPage: React.FC = () => {
   return (
     <Layout>
       <section className="container mx-auto mt-20 min-h-82 py-20">
-        <h1 className="text-center text-8xl font-bold">Distribuidores</h1>
-        <div className="my-20 flex items-center justify-center">
-          <div className="w-1/2">
+        <h1 className="text-center text-5xl sm:text-8xl font-bold">Distribuidores</h1>
+        <div className="my-20 flex flex-col-reverse items-center justify-center sm:flex-row  p-10">
+          <div className="w-full sm:w-1/2">
             <h2 className="mb-5 text-4xl font-bold">Soluciones premium para tu negocio</h2>
             <p className="text-gray-600">
               Si eres arquitecto, diseñador, constructor, hotelero, desarrollador de proyectos o tienes un negocio de
@@ -20,8 +20,8 @@ const DistribuidoresPage: React.FC = () => {
               más sobre nuestras opciones de compra al por mayor y llevar tus proyectos o negocio al siguiente nivel.
             </p>
           </div>
-          <div className="w-1/2">
-            <Image src="/img/mayoreo.png" alt="Distribuidores" width={800} height={800} />
+          <div className="w-full sm:w-1/2 mb-5 sm:mb-0">
+            <Image src="/img/mayoreo.png" alt="Distribuidores" width={800} height={800} className="w-full" />
           </div>
         </div>
         <div className="my-20 flex items-center justify-center">

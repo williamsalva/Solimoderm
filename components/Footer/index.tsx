@@ -10,8 +10,8 @@ export default function Footer() {
       <footer className="bg-primary-500 py-10 text-white">
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-around">
-            <div className="mr-5 sm:w-full md:w-1/3 lg:w-1/4">
-              <div className="relative -top-10 left-0 rounded-b-xl bg-white p-3 pt-5">
+            <div className="sm:mr-5 sm:w-full md:w-1/3 lg:w-1/4">
+              <div className="relative -top-10 sm:left-0 rounded-b-xl bg-white p-3 pt-5">
                 <Link href="/">
                   <Image alt="Solimoderm" src="/img/solimoderm.png" width={250} height={150} />
                 </Link>
