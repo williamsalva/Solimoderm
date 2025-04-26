@@ -32,8 +32,8 @@ export default function Web() {
       <div className="flex min-h-32 items-center justify-center p-6">
         <Hero />
       </div>
-      <section style={{ backgroundColor: "#F4FAFF", margin: "50px", borderRadius: "50px" }}>
-        <div className=" mx-auto">
+      <section className="m-5 sm:m-20" style={{ backgroundColor: "#F4FAFF",borderRadius: "50px" }}>
+        <div className="mx-auto">
           <CardProducts />
         </div>
       </section>

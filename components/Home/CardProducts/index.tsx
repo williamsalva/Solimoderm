@@ -34,7 +34,7 @@ const CardProducts = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className={`relative m-5 flex h-80 w-full transform items-center justify-between rounded-3xl p-4 shadow-md transition-transform hover:scale-105`}
+              className={`relative m-5 flex h-80 w-full transform items-center justify-between rounded-3xl sm:p-4 shadow-md transition-transform hover:scale-105`}
               style={{
               backgroundColor: hoveredIndex === index ? product.hoverBgColor : product.bgColor,
               }}
@@ -43,7 +43,7 @@ const CardProducts = () => {
               onClick={() => window.location.href = product.url}
             >
                 <h3
-                className={`absolute text-4xl bottom-1 left-4  font-bold sm:top-4 sm:text-7xl ${
+                className={`absolute mb-5 text-4xl bottom-1 left-4  font-bold sm:top-4 sm:text-7xl ${
                   hoveredIndex === index ? ` text-primary-500` : "text-white"
                 }`}
                 >
@@ -55,12 +55,12 @@ const CardProducts = () => {
                 alt={product.name}
                 width={300}
                 height={300}
-                className="absolute right-4 bottom-20 sm:right-10 sm:bottom-auto"
+                className="absolute  bottom-20 sm:right-10 sm:bottom-auto"
                 />
                 ) : null}
-              <button className="absolute right-4 bottom-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white hover:bg-gray-600">
-              <FaArrowRight />
-              </button>
+                <button className="absolute right-4 bottom-4 hidden h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white hover:bg-gray-600 sm:flex">
+                <FaArrowRight />
+                </button>
             </div>
           ))}
         </div>

@@ -11,12 +11,12 @@ export default function Footer() {
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-around">
             <div className="sm:mr-5 sm:w-full md:w-1/3 lg:w-1/4">
-              <div className="relative -top-10 sm:left-0 rounded-b-xl bg-white p-3 pt-5">
+                <div className="relative -top-10 sm:left-0 rounded-b-xl bg-white p-3 pt-5 flex justify-center">
                 <Link href="/">
                   <Image alt="Solimoderm" src="/img/solimoderm.png" width={250} height={150} />
                 </Link>
-              </div>
-              <div className="mt-5 mb-5">
+                </div>
+              <div className="ml-5 sm:ml-0 mt-5 mb-5">
                 <p className="text-md mb-2">
                   Solimoderm es una empresa dedicada a la importación y distribución de productos de baño y cocina. Nos
                   especializamos en ofrecer tarjas, espejos LED y muebles de baño con diseños premium y calidad
@@ -38,7 +38,7 @@ export default function Footer() {
                       <a href="/distribuidores">Distribuidores</a>
                     </li>
                     <li>
-                      <a href="/contacto">Contactanos</a>
+                        <a href="/contacto">Contáctanos</a>
                     </li>
                   </ul>
                 </div>

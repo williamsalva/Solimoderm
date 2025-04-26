@@ -27,6 +27,7 @@ const links = [
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const isDesktop = useMediaQuery({ minWidth: 1024 })
+  const isMobile = useMediaQuery({ maxWidth: 1023 })
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
   const [headerColor, setHeaderColor] = useState("bg-white transition-colors duration-500")
   const [textColor, setTextColor] = useState("text-primary-500 transition-colors duration-500")
@@ -34,7 +35,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 900) {
+      if (window.scrollY > 900 && isDesktop || isMobile && window.scrollY > 200) {
         setHeaderColor("bg-primary-500 transition-colors duration-500")
         setTextColor("text-white hover:text-primary-500 transition-colors duration-500")
         setIsScrolling(true)
