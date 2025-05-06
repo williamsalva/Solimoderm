@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: "false", // or 'media' or 'class'
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
