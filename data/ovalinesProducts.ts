@@ -263,7 +263,7 @@ const ovalinesProducts: _Product[] = [
   {
     id: 430,
     name: "Ovalin marmol pañuelo",
-    url: "ovalin-marmol-pañuelo-OTMB40",
+    url: "ovalin-marmol-panuelo-OTMB40",
     image: "/img/ovalines/OTMB40.png",
     size: "40cm x 40cm",
     description: `Dale un toque de estilo y sofisticación a tu baño con este ovalín de diseño moderno. Ideal para complementar cualquier estilo de decoración, su forma funcional y estética lo convierten en una excelente opción para baños contemporáneos o clásicos. /n

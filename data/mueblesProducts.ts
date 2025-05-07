@@ -1,9 +1,9 @@
 const mueblesProducts: _Product[] = [
   {
     id: 1,
-    name: "Mueble Flotante Blnaco Noruego",
+    name: "Mueble Flotante Blanco Noruego",
     url: "mueble-bano-blanco-noruego",
-    image: "/img/muebles/mueble-baño-blanco-noruego.png",
+    image: "/img/muebles/muebles-baño-blanco-noruego.png",
     description:
       "Dale a tu baño un toque moderno con el estilo limpio del diseño nórdico. Este mueble flotante es ideal para optimizar espacios reducidos sin perder funcionalidad ni estilo. Incluye lavabo con llave monomando cromada, además de mangueras, contracanasta y cespol, por lo que viene listo para una instalación rápida y sencilla. Se envía completamente empacado para garantizar que llegue en perfecto estado y también ofrecemos factura si lo necesitas. Solo toma en cuenta que no se incluyen taquetes ni tornillos.",
     size: "45cm x 35cm x 73cm",

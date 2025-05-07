@@ -162,7 +162,7 @@ const NavBar = () => {
                       )}
                     </a>
                     {link.subLinks && isSubMenuOpen && (
-                      <ul className="mt-2 space-y-2 bg-gray-800 p-4">
+                      <ul className="mt-2 space-y-2 bg-gray-800 p-4 rounded shadow-lg">
                         {link.subLinks.map((subLink) => (
                           <li key={subLink.label}>
                             <a

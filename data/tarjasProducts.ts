@@ -11,7 +11,7 @@ const tarjasProducts: _Product[] = [
   {
     id:502,
     name: "Tarja de acero inoxidable doble",
-    url: "tarja-acero-inoxidable-workstation",
+    url: "tarja-acero-inoxidable-workstation-SO8045",
     image: "/img/tarjas/tarja-acero-SO8045.png",
     size: "80cm x 45cm x 21cm",
     description: `Tarja de excelente calidad con diseño funcional y duradero, ideal para cocinas que requieren mayor versatilidad. Fabricada en acero inoxidable calibre 18 con recubrimiento reductor de ruido, cuenta con doble tina de 21 cm de profundidad, perfecta para separar tareas de lavado y enjuague.
