@@ -6,7 +6,13 @@ const resend = new Resend("re_bUq5zZxA_Ah7naywCXbCmNTSDHcYqkf1t")
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json()
+    const body = (await req.json()) as {
+      name: string
+      email: string
+      phone: string
+      city: string
+      message: string
+    }
     const { name, email, phone, city, message } = body
     console.log("🚀 ~ POST ~ email, name :", email, name)
 
