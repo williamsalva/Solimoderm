@@ -4,7 +4,7 @@ import { EmailTemplate } from "../../../components/templates/emailTemplate.jsx"
 
 const resend = new Resend("re_bUq5zZxA_Ah7naywCXbCmNTSDHcYqkf1t")
 
-export async function POST(req, res) {
+export async function POST(req: Request) {
   try {
     const body = await req.json()
     const { name, email, phone, city, message } = body
@@ -19,14 +19,16 @@ export async function POST(req, res) {
     console.log("🚀 ~ POST ~ data:", data)
 
     if (error) {
-      return Response.json({ error })
+      return new Response(JSON.stringify({ error }), { status: 500 })
     }
 
-    return Response.json({
-      data,
-      message: "Mensaje enviado correctamente",
-      status: 201,
-    })
+    return new Response(
+      JSON.stringify({
+        data,
+        message: "Mensaje enviado correctamente",
+        status: 201,
+      })
+    )
   } catch (error) {
     console.log("🚀 ~ POST ~ error:", error)
     return Response.json({ error })
