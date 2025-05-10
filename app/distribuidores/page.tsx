@@ -1,7 +1,8 @@
-import React from "react"
-import Layout from "components/Layout"
 import Image from "next/image"
+import React from "react"
+import FaqSection from "components/FaqSection"
 import UsDifferent from "components/Home/UsDifferent"
+import Layout from "components/Layout"
 
 const DistribuidoresPage: React.FC = () => {
   return (
@@ -23,6 +24,9 @@ const DistribuidoresPage: React.FC = () => {
           <div className="w-full sm:w-1/2 mb-5 sm:mb-0">
             <Image src="/img/mayoreo.png" alt="Distribuidores" width={800} height={800} className="w-full" />
           </div>
+        </div>
+        <div className="my-20 flex items-center justify-center">
+        <FaqSection />
         </div>
         <div className="my-20 flex items-center justify-center">
           <UsDifferent />

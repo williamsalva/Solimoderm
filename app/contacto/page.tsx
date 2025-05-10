@@ -32,7 +32,7 @@ const ContactPage = () => {
               </div>
             </div>
             <div className="w-full mt-10 p-4 sm:w-1/2 sm:mt-0">
-              <h2 className="mb-5 text-5xl sm:text-6xl font-bold">Contáctanos</h2>
+              
               <FormContact />
             </div>
             </div>
