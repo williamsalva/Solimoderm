@@ -38,6 +38,9 @@ export default function Footer() {
                       <a href="/distribuidores">Distribuidores</a>
                     </li>
                     <li>
+                      <a href="/clips">Clips</a>
+                    </li>
+                    <li>
                         <a href="/contacto">Contáctanos</a>
                     </li>
                   </ul>

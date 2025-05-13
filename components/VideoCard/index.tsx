@@ -6,40 +6,45 @@ type Props = {
   url: string;
 };
 
-function isMobileDevice(): boolean {
-  if (typeof navigator === "undefined") return false;
-  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
-
 export default function VideoCard({ url }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mobile = isMobileDevice();
-    setIsMobile(mobile);
+    // Detectar si es mobile por ancho de pantalla
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // típico breakpoint móvil
+    };
 
-    if (!mobile) return; // Solo ejecutar IntersectionObserver en móviles
+    checkIfMobile(); // detectar al cargar
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const video = videoRef.current;
-        if (!video) return;
+    window.addEventListener("resize", checkIfMobile); // detectar si redimensiona
 
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.5 }
-    );
+    // Configurar IntersectionObserver solo si es móvil
+    let observer: IntersectionObserver | null = null;
 
-    const videoEl = videoRef.current;
-    if (videoEl) observer.observe(videoEl);
+    if (window.innerWidth <= 768) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          const video = videoRef.current;
+          if (!video) return;
+
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      const videoEl = videoRef.current;
+      if (videoEl) observer.observe(videoEl);
+    }
 
     return () => {
-      if (videoRef.current) observer.unobserve(videoRef.current);
+      window.removeEventListener("resize", checkIfMobile);
+      if (observer && videoRef.current) observer.unobserve(videoRef.current);
     };
   }, []);
 

@@ -21,6 +21,7 @@ const links = [
   },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/distribuidores", label: "Distribuidores" },
+  { href: "/clips", label: "Clips" },
   { href: "/contacto", label: "Contacto" },
 ]
 
@@ -135,7 +136,7 @@ const NavBar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
-              <ul className="flex h-full flex-col items-start justify-center space-y-4">
+              <ul className="flex h-full flex-col items-start justify-start mt-20 space-y-4">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
