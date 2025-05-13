@@ -26,45 +26,51 @@ const FaqSection = () => {
               } mb-8 lg:p-4`}
             >
               <button
-                className="accordion-toggle group inline-flex items-center justify-between text-left text-lg font-normal leading-8 w-full transition duration-500 hover:text-gray-600"
-                aria-controls={`faq-content-${index}`}
-                onClick={() => toggleAccordion(index)}
-                aria-expanded={activeIndex === index}
-              >
-                <h5 className="text-2xl font-bold">{item.question}</h5>
-                <svg
-                  className={`w-6 h-6 text-gray-900 transition duration-500 ${
-                    activeIndex === index ? 'hidden' : 'block'
-                  } group-hover:text-gray-600`}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 12H18M12 18V6"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-                <svg
-                  className={`w-6 h-6 text-gray-900 transition duration-500 ${
-                    activeIndex === index ? 'block' : 'hidden'
-                  } group-hover:text-gray-600`}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 12H18"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-              </button>
+  className="accordion-toggle group flex items-center justify-between text-left text-lg font-normal leading-8 w-full transition duration-500 hover:text-gray-600"
+  aria-controls={`faq-content-${index}`}
+  onClick={() => toggleAccordion(index)}
+  aria-expanded={activeIndex === index}
+>
+  <h5 className="text-2xl font-bold flex-1">{item.question}</h5>
+  <div className="flex-shrink-0 w-6 h-6">
+    <svg
+      className={`text-gray-900 transition duration-500 ${
+        activeIndex === index ? 'hidden' : 'block'
+      } group-hover:text-gray-600`}
+      viewBox="0 0 24 24"
+      width="24px"
+      height="24px"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12H18M12 18V6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+    <svg
+      className={`text-gray-900 transition duration-500 ${
+        activeIndex === index ? 'block' : 'hidden'
+      } group-hover:text-gray-600`}
+      viewBox="0 0 24 24"
+      width="24px"
+      height="24px"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12H18"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  </div>
+</button>
               <div
                 id={`faq-content-${index}`}
                 className="accordion-content w-full overflow-hidden pr-4 transition-all duration-500"

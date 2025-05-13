@@ -4,6 +4,7 @@ import CardProducts from "components/Home/CardProducts"
 import Hero from "components/Home/Hero"
 import UsDifferent from "components/Home/UsDifferent"
 import Layout from "components/Layout"
+import FaqSection from "components/FaqSection"
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://solimoderm.com"),
@@ -41,6 +42,9 @@ export default function Web() {
       <section>
         <UsDifferent />
       </section>
+      <div className="my-20 flex items-center justify-center">
+              <FaqSection />
+              </div>
       <section style={{ backgroundColor: "#F4FAFF", margin: "50px", borderRadius: "50px" }}>
         <CallToAction />
       </section>
