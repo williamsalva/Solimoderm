@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import image3 from "../../public/img/hero-mueble.png";
 import image1 from "../../public/img/hero-ovalin.png";
 import image2 from "../../public/img/hero-tarja.png";
+import image4 from "../../public/img/hero-muebles-bano.png";
+import image5 from "../../public/img/hero-taja-dos.png";
 
 // Interface for image data
 interface ImageData {
@@ -20,6 +22,12 @@ const images: ImageData[] = [
   },
   {
     src: image3,
+  },
+  {
+    src: image4,
+  },
+  {
+    src: image5,
   },
 ];
 
