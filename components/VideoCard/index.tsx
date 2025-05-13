@@ -29,7 +29,7 @@ export default function VideoCard({ url }: Props) {
           const video = videoRef.current;
           if (!video) return;
 
-          if (entry.isIntersecting) {
+          if (entry?.isIntersecting) {
             video.play().catch(() => {});
           } else {
             video.pause();
