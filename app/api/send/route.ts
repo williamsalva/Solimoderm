@@ -18,7 +18,7 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "hola@solimoderm.com",
-      to: "solimodermcontacto@gmail.com",
+      to: ["solimodermcontacto@gmail.com", "ricardosolimoderm@hotmail.com"],
       subject: "¡Tienes un nuevo mensaje en tu pagina Solimoderm.com!",
       react: EmailTemplate({ name, email, phone, city, message }),
     })
