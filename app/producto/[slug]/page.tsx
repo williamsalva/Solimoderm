@@ -1,4 +1,3 @@
-
 import Image from "next/image"
 import React from "react"
 
@@ -23,8 +22,8 @@ export async function generateStaticParams() {
   return paths
 }
 
-const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) => {
-  const { slug } =  await params
+const ProductDetail = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params
   console.log(listProducts)
   console.log(slug)
   const product = listProducts.find((product) => product.url === slug)
@@ -48,8 +47,8 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
   return (
     <Layout>
       <section className="container mx-auto mt-20 min-h-82 py-20">
-        <div className="flex flex-col sm:flex-row p-5">
-          <div className=" w-full sm:flex-1 overflow-hidden [clip-path:inset(10px)]">
+        <div className="flex flex-col p-5 sm:flex-row">
+          <div className="w-full overflow-hidden [clip-path:inset(10px)] sm:flex-1">
             <Image
               className="rounded-lg"
               src={product.image}
@@ -59,15 +58,15 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
               height={500}
             />
           </div>
-          <div className="mt-20 sm:ml-10 flex-1 pl-5">
-            <h1 className="mb-4 text-4xl sm:text-6xl font-bold">{product.name}</h1>
-            <p className="mb-4 text-2xl sm:text-xl ">{product.description}</p>
+          <div className="mt-20 flex-1 pl-5 sm:ml-10">
+            <h1 className="mb-4 text-4xl font-bold sm:text-6xl">{product.name}</h1>
+            <p className="mb-4 text-2xl sm:text-xl">{product.description}</p>
             <a
-              href={`https://wa.me/5213317943279?text=Estoy%20interesado%20en%20el%20producto%20${product.name}%20${product.url}`}
+              href={`https://wa.me/5213316966041?text=Estoy%20interesado%20en%20el%20producto%20${product.name}%20${product.url}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="mt-6 flex text-xl  sm:text-2xl w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3">
+              <button className="mt-6 flex w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 text-xl font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3 sm:text-2xl">
                 <FaWhatsapp className="mr-2 text-4xl" />
                 Comprar en WhatsApp
               </button>
@@ -80,13 +79,13 @@ const ProductDetail = async ({ params }: { params: Promise<{ slug: string }>}) =
           <h3 className="mt-4 mb-20 text-center text-3xl font-bold sm:text-6xl">Productos Relacionados</h3>
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {relatedProducts.map((product) => (
-                <Link key={product.id} href={`/producto/${product.url}`} className="group relative">
+              <Link key={product.id} href={`/producto/${product.url}`} className="group relative">
                 <Image
                   alt={product.name}
-                  src={product.image} 
+                  src={product.image}
                   width={500}
                   height={500}
-                  className="overflow-hidden [clip-path:inset(5px)] aspect-square w-full rounded-lg bg-gray-200 object-cover transition-transform duration-300 group-hover:translate-y-[-10px] xl:aspect-7/8"
+                  className="aspect-square w-full overflow-hidden rounded-lg bg-gray-200 object-cover transition-transform duration-300 [clip-path:inset(5px)] group-hover:translate-y-[-10px] xl:aspect-7/8"
                 />
                 <h3 className="mt-4 text-xl font-bold">{product.name}</h3>
               </Link>

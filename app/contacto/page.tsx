@@ -9,33 +9,32 @@ const ContactPage = () => {
     <Layout>
       <section className="min-h-screen">
         <div className="container mx-auto mt-20 min-h-82 py-20">
-          <h1 className="text-center text-6xl sm:text-8xl font-bold">Contacto</h1>
-            <div className="my-20 flex flex-col items-center justify-center sm:flex-row">
+          <h1 className="text-center text-6xl font-bold sm:text-8xl">Contacto</h1>
+          <div className="my-20 flex flex-col items-center justify-center sm:flex-row">
             <div className="w-full p-4 sm:w-1/2">
               <h2 className="mb-5 text-6xl font-bold">¿Tienes alguna duda? 🤔</h2>
               <p className="text-lg text-gray-500">
-              Si tienes alguna duda, comentario o sugerencia, no dudes en contactarnos. En Solimoder estamos para
-              ayudarte. Llena el formulario de contacto o comunícate con nosotros a través de nuestras redes sociales.
+                Si tienes alguna duda, comentario o sugerencia, no dudes en contactarnos. En Solimoder estamos para
+                ayudarte. Llena el formulario de contacto o comunícate con nosotros a través de nuestras redes sociales.
               </p>
 
               <div className="mt-10">
-              <h3 className="text-5xl font-bold">Mándanos un WhatsApp</h3>
-              <a
-                href="https://wa.me/5213317943279?text=👋Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20Productos"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 flex w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3"
-              >
-                <FaWhatsapp className="mr-2 text-xl" />
-                Envianos un WhatsApp
-              </a>
+                <h3 className="text-5xl font-bold">Mándanos un WhatsApp</h3>
+                <a
+                  href="https://wa.me/5213316966041?text=👋Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20Productos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 flex w-full max-w-xs transform items-center justify-center rounded-full bg-green-500 px-4 py-2 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-green-600 sm:max-w-md sm:px-10 sm:py-3"
+                >
+                  <FaWhatsapp className="mr-2 text-xl" />
+                  Envianos un WhatsApp
+                </a>
               </div>
             </div>
-            <div className="w-full mt-10 p-4 sm:w-1/2 sm:mt-0">
-              
+            <div className="mt-10 w-full p-4 sm:mt-0 sm:w-1/2">
               <FormContact />
             </div>
-            </div>
+          </div>
           {/* Ubicación en Google Maps */}
           <div className="my-20 flex flex-col justify-center">
             <h3 className="mt-4 mb-10 text-center text-lg font-bold sm:text-4xl">
