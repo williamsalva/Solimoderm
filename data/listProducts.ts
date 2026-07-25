@@ -1,15 +1,29 @@
-import espejosProducts from "./espejosProducts"
-import mueblesProducts from "./mueblesProducts"
-import ovalinesProducts from "./ovalinesProducts"
-import repisasProducts from "./repisasProducts"
-import tarjasProducts from "./tarjasProducts"
+import { Product } from "types/products"
 
-const listProducts = [
-  ...espejosProducts,
+import mueblesBanoProducts from "./mueblesBanoProducts"
+import mueblesCocinaProducts from "./mueblesCocinaProducts"
+import tarjasProducts from "./tarjasProducts"
+import espejosProducts from "./espejosProducts"
+import ovalinesProducts from "./ovalinesProducts"
+import monomandosProducts from "./monomandosProducts"
+import desaguesProducts from "./desaguesProducts"
+import repisasProducts from "./repisasProducts"
+import inodorosProducts from "./inodorosProducts"
+import tanquesProducts from "./tanquesProducts"
+import exhibidoresProducts from "./exhibidoresProducts"
+
+const listProducts: Product[] = [
+  ...mueblesBanoProducts,
+  ...mueblesCocinaProducts,
   ...tarjasProducts,
-  ...repisasProducts,
-  ...mueblesProducts,
+  ...espejosProducts,
   ...ovalinesProducts,
+  ...monomandosProducts,
+  ...desaguesProducts,
+  ...repisasProducts,
+  ...inodorosProducts,
+  ...tanquesProducts,
+  ...exhibidoresProducts,
 ]
 
 export default listProducts

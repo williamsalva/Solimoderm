@@ -5,19 +5,14 @@ import React, { useEffect, useState } from "react"
 import { useMediaQuery } from "react-responsive"
 import Image from "next/image"
 
+import categories from "data/categories"
+
 const links = [
   { href: "/", label: "Inicio" },
   {
     href: "#",
     label: "Productos",
-    subLinks: [
-      { href: "/tarjas", label: "Tarjas" },
-      { href: "/muebles-de-bano", label: "Muebles de baño" },
-      { href: "/espejos", label: "Espejos" },
-      { href: "/repisas", label: "Repisas" },
-      { href: "/ovalines", label: "Ovalines" },
-    
-    ],
+    subLinks: categories.map((category) => ({ href: `/${category.slug}`, label: category.name })),
   },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/distribuidores", label: "Distribuidores" },

@@ -32,16 +32,16 @@ export default function Footer() {
                       <Link href="/">Inicio</Link>
                     </li>
                     <li>
-                      <a href="/nosotros">Nosotros</a>
+                      <Link href="/nosotros">Nosotros</Link>
                     </li>
                     <li>
-                      <a href="/distribuidores">Distribuidores</a>
+                      <Link href="/distribuidores">Distribuidores</Link>
                     </li>
                     <li>
-                      <a href="/clips">Clips</a>
+                      <Link href="/clips">Clips</Link>
                     </li>
                     <li>
-                        <a href="/contacto">Contáctanos</a>
+                        <Link href="/contacto">Contáctanos</Link>
                     </li>
                   </ul>
                 </div>

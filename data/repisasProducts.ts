@@ -1,112 +1,157 @@
-const repisasProducts = [
-  {
-    id: 101,
-    name: "Repisa esquinera",
-    description:
-      "Aprovecha cada rincón con estilo. Su acabado negro con vetas tipo mármol aporta un toque moderno, mientras que el barandal de acero inoxidable brinda seguridad y elegancia. Incluye herrajes, soportes, taquetes y tornillos para una instalación rápida y sencilla. ¡Optimiza tu espacio con distinción!",
-    url: "repisa-esquinera-NRD",
-    image: "/img/repisas/ESQ-NRD.png",
-    size: "24.5 cm x 24.5 cm x 24.5 cm"
-  },
-  {
-    id: 102,
-    name: "Repisa esquinera",
-    description:
-      "Aprovecha cada rincón con estilo. Su acabado negro con vetas tipo mármol aporta un toque moderno, mientras que el barandal de acero inoxidable brinda seguridad y elegancia. Incluye herrajes, soportes, taquetes y tornillos para una instalación rápida y sencilla. ¡Optimiza tu espacio con distinción!",
-    url: "repisa-esquinera-BRN",
-    image: "/img/repisas/ESQ-BRN.png",
-    size: "24.5 cm x 24.5 cm x 24.5 cm"
-  },
-  {
-    id: 103,
-    name: "Repisa esquinera",
-    description:
-      "Aprovecha cada rincón con estilo. Su acabado negro con vetas tipo mármol aporta un toque moderno, mientras que el barandal de acero inoxidable brinda seguridad y elegancia. Incluye herrajes, soportes, taquetes y tornillos para una instalación rápida y sencilla. ¡Optimiza tu espacio con distinción!",
-    url: "repisa-esquinera-NRB",
-    image: "/img/repisas/ESQ-NRB.png",
-    size: "24.5 cm x 24.5 cm x 24.5 cm"
-  },
-  {
-    id: 104,
-    name: "Repisa esquinera",
-    description:
-      "Aprovecha cada rincón con estilo. Su acabado negro con vetas tipo mármol aporta un toque moderno, mientras que el barandal de acero inoxidable brinda seguridad y elegancia. Incluye herrajes, soportes, taquetes y tornillos para una instalación rápida y sencilla. ¡Optimiza tu espacio con distinción!",
-    url: "repisa-esquinera-NMG",
-    image: "/img/repisas/ESQ-NMG.png",
-    size: "24.5 cm x 24.5 cm x 24.5 cm"
-  },
-  {
-    id: 105,
-    name: "Repisa esquinera Negra",
-    description:
-      "Aprovecha cada rincón con estilo. Su acabado negro tipo mármol aporta un toque moderno, mientras que el barandal de acero inoxidable brinda seguridad y elegancia. Incluye herrajes, soportes, taquetes y tornillos para una instalación rápida y sencilla. ¡Optimiza tu espacio con distinción!",
-    url: "repisa-esquinera-N",
-    image: "/img/repisas/ESQ-N.png",
-    size: "24.5 cm x 24.5 cm x 24.5 cm"
-  },
-  {
-    id: 106,
-    name: "Repisa esquinera de Cristal Templado",
-    description:
-      "Elegancia y funcionalidad en un solo diseño. Con medidas de 25x25 cm, esta repisa de cristal templado es ideal para aprovechar espacios con un toque moderno y minimalista. Incluye taquetes, tornillos y herrajes para una instalación fácil y segura. ¡Dale estilo a tu baño con un detalle sofisticado!",
-    url: "repisa-esquinera-B",
-    image: "/img/repisas/ESQ-B.png",
-    size: "25 cm x 25 cm "
-  },
-  {
-    id: 107,
-    name: "Repisa rectangular",
-    description:
-      "Optimiza tu espacio con estilo. Con medidas de 42x11 cm, esta repisa es ideal para organizar tus productos de baño con un toque moderno y elegante. Incluye taquetes, herrajes y tornillos para una instalación fácil y segura. ¡Funcionalidad y diseño en un solo producto!",
-    url: "repisa-rectangular-BRG",
-    image: "/img/repisas/REC-BRG.png",
-    size: "40 cm x 5 cm x 11 cm"
-  },
-  {
-    id: 108,
-    name: "Repisa rectangular",
-    description:
-    "Optimiza tu espacio con estilo. Con medidas de 42x11 cm, esta repisa es ideal para organizar tus productos de baño con un toque moderno y elegante. Incluye taquetes, herrajes y tornillos para una instalación fácil y segura. ¡Funcionalidad y diseño en un solo producto!",
-    url: "repisa-rectangular-NRD",
-    image: "/img/repisas/REC-NRD.png",
-    size: "40 cm x 5 cm x 11 cm"
-  },
-  {
-    id: 109,
-    name: "Repisa rectangular negra",
-    description:
-      "Una repisa elegante y funcional. Su acabado negro mate combina con cualquier decoración. Perfecta para organizar tus espacios con estilo.",
-    url: "repisa-rectangular-N",
-    image: "/img/repisas/REC-N.png",
-     size: "40 cm x 5 cm x 11 cm"
-  },
-  {
-    id: 110,
-    name: "Repisa rectangular",
-    description:
-    "Una repisa elegante y funcional. Su acabado negro mate combina con cualquier decoración. Perfecta para organizar tus espacios con estilo.",
-    url: "repisa-rectangular-NB",
-    image: "/img/repisas/REC-NB.png",
-     size: "40 cm x 5 cm x 11 cm"
-  },
-  {
-    id: 111,
-    name: "Repisa rectangular",
-    description:
-     "Optimiza tu espacio con estilo. Con medidas de 42x11 cm, esta repisa es ideal para organizar tus productos de baño con un toque moderno y elegante. Incluye taquetes, herrajes y tornillos para una instalación fácil y segura. ¡Funcionalidad y diseño en un solo producto!",
-    url: "repisa-rectangular-NMG",
-    image: "/img/repisas/REC-NMG.png",
-    size: "40 cm x 5 cm x 11 cm"
-  },
-  {
-    id: 112,
-    name: "Repisa rectangular de cristal",
-    description:
-      "Optimiza tu espacio con estilo. Con medidas de 42x11 cm, esta repisa es ideal para organizar tus productos de baño con un toque moderno y elegante. Incluye taquetes, herrajes y tornillos para una instalación fácil y segura. ¡Funcionalidad y diseño en un solo producto!",
-    url: "repisa-rectangular-B",
-    image: "/img/repisas/REC-B.png",
-      size: "40 cm x 5 cm x 11 cm"
-  }
-];
+import { Product } from "types/products"
 
-export default repisasProducts;
+// Generado del catalogo Solimoderm 2026 (Repisas multiusos)
+const repisasProducts: Product[] = [
+  {
+    id: 8001,
+    slug: "repisa-esquinera-transparente-esq-b",
+    name: "Repisa esquinera transparente",
+    title: "Repisa esquinera",
+    category: "repisas",
+    image: "/img/repisas/repisa-esquinera-transparente-esq-b.webp",
+    description: "Repisa esquinera transparente modelo ESQ-B de Solimoderm. Incluye material de cristal. Medidas: ancho 25 cm, profundidad 25 cm.",
+    model: "ESQ-B",
+    brand: "SOLIMODERM",
+    masterBox: "10 PIEZAS",
+    variant: "Transparente",
+    dimensions: [
+      {
+        label: "Ancho",
+        value: "25 cm",
+      },
+      {
+        label: "Profundidad",
+        value: "25 cm",
+      },
+    ],
+    features: [
+      {
+        text: "Material de cristal",
+        icon: "cristal",
+      },
+    ],
+  },
+  {
+    id: 8002,
+    slug: "repisa-esquinera-beteada-esq-nrb",
+    name: "Repisa esquinera beteada",
+    title: "Repisa esquinera",
+    category: "repisas",
+    image: "/img/repisas/repisa-esquinera-beteada-esq-nrb.webp",
+    description: "Repisa esquinera beteada modelo ESQ-NRB de Solimoderm. Incluye material de cristal. Medidas: ancho 25 cm, profundidad 25 cm.",
+    model: "ESQ-NRB",
+    brand: "SOLIMODERM",
+    masterBox: "10 PIEZAS",
+    variant: "Beteada",
+    dimensions: [
+      {
+        label: "Ancho",
+        value: "25 cm",
+      },
+      {
+        label: "Profundidad",
+        value: "25 cm",
+      },
+    ],
+    features: [
+      {
+        text: "Material de cristal",
+        icon: "cristal",
+      },
+    ],
+    finishes: [
+      {
+        code: "ESQ-NRG",
+      },
+      {
+        code: "ESQ-N",
+      },
+      {
+        code: "ESQ-NMG",
+      },
+      {
+        code: "ESQ-NMG",
+      },
+      {
+        code: "ESQ-NRD",
+      },
+    ],
+  },
+  {
+    id: 8003,
+    slug: "repisa-rectangular-beteada-rec-nrd",
+    name: "Repisa rectángular beteada",
+    title: "Repisa rectángular",
+    category: "repisas",
+    image: "/img/repisas/repisa-rectangular-beteada-rec-nrd.webp",
+    description: "Repisa rectángular beteada modelo REC-NRD de Solimoderm. Incluye material de cristal. Medidas: ancho 40 cm, profundidad 15 cm.",
+    model: "REC-NRD",
+    brand: "SOLIMODERM",
+    masterBox: "10 PIEZAS",
+    variant: "Beteada",
+    dimensions: [
+      {
+        label: "Ancho",
+        value: "40 cm",
+      },
+      {
+        label: "Profundidad",
+        value: "15 cm",
+      },
+    ],
+    features: [
+      {
+        text: "Material de cristal",
+        icon: "cristal",
+      },
+    ],
+    finishes: [
+      {
+        code: "REC-NRG",
+      },
+      {
+        code: "REC-N",
+      },
+      {
+        code: "REC-NMG",
+      },
+      {
+        code: "REC-BRN",
+      },
+      {
+        code: "REC-NB",
+      },
+    ],
+  },
+  {
+    id: 8004,
+    slug: "repisa-rectangular-transparente-rec-b",
+    name: "Repisa rectángular transparente",
+    title: "Repisa rectángular",
+    category: "repisas",
+    image: "/img/repisas/repisa-rectangular-transparente-rec-b.webp",
+    description: "Repisa rectángular transparente modelo REC-B de Solimoderm. Incluye material de cristal. Medidas: ancho 40 cm, profundidad 15 cm.",
+    model: "REC-B",
+    brand: "SOLIMODERM",
+    masterBox: "10 PIEZAS",
+    variant: "Transparente",
+    dimensions: [
+      {
+        label: "Ancho",
+        value: "40 cm",
+      },
+      {
+        label: "Profundidad",
+        value: "15 cm",
+      },
+    ],
+    features: [
+      {
+        text: "Material de cristal",
+        icon: "cristal",
+      },
+    ],
+  },
+]
+
+export default repisasProducts

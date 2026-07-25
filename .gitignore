@@ -34,3 +34,8 @@ storybook-static/
 /playwright/.cache/
 
 /.npm-only-allow
+# typescript incremental build
+tsconfig.tsbuildinfo
+
+# catalogo fuente (123 MB, no versionar)
+Catalogo.pdf
