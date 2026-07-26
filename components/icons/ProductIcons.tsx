@@ -24,6 +24,14 @@ const Svg = ({ children, ...props }: IconProps) => (
   </svg>
 )
 
+/** Cubo isométrico de las medidas, igual que en el catálogo impreso. */
+const Cubo = () => (
+  <>
+    <path d="M11 3.2 17.2 6.8v7.4L11 17.8 4.8 14.2V6.8L11 3.2Z" />
+    <path d="M4.8 6.8 11 10.5l6.2-3.7M11 10.5v7.3" />
+  </>
+)
+
 const paths: Record<string, React.ReactNode> = {
   // --- materiales y cuerpos ---
   mdf: (
@@ -70,8 +78,9 @@ const paths: Record<string, React.ReactNode> = {
   // --- piezas de baño ---
   lavabo: (
     <>
-      <path d="M3 10h18v2a7 7 0 0 1-14 0v-2Z" />
-      <path d="M12 3v7" />
+      <ellipse cx="12" cy="8.6" rx="8" ry="3" />
+      <path d="M4 8.6c0 4.5 3.6 8.2 8 8.2s8-3.7 8-8.2" />
+      <ellipse cx="12" cy="10.4" rx="1.4" ry="0.7" />
     </>
   ),
   loza: (
@@ -83,9 +92,11 @@ const paths: Record<string, React.ReactNode> = {
   ),
   monomando: (
     <>
-      <path d="M13 21V9" />
-      <path d="M13 9h5V6a3 3 0 0 0-3-3h-4" />
-      <path d="M9 21h8" />
+      <path d="M8.8 20.8h6.4" />
+      <path d="M10.8 20.8V10.4h2.4v10.4" />
+      <path d="M13.2 11.6h2.2a2.4 2.4 0 0 1 2.4 2.4v1.8" />
+      <path d="m10.8 11.4-2.4-1.6" />
+      <circle cx="7.4" cy="9.2" r="1" />
     </>
   ),
   mezcladora: (
@@ -97,7 +108,11 @@ const paths: Record<string, React.ReactNode> = {
   ),
   cespol: (
     <>
-      <path d="M9 3v4a2 2 0 0 0 2 2h3a2 2 0 0 1 2 2v5a3 3 0 0 1-6 0v-2a2 2 0 0 0-4 0v5" />
+      <ellipse cx="6.6" cy="4" rx="3.4" ry="1.5" />
+      <path d="M6.6 5.5v2.6" />
+      <path d="M4.2 8.1h4.8v5.6a3.6 3.6 0 0 0 3.6 3.6h2.2" />
+      <path d="M4.9 9.9h3.4M4.9 11.7h3.4M5.3 13.5h3.7M6.4 15.3h3.4" />
+      <path d="M14.8 15.3h3.4v3.6h-3.4z" />
     </>
   ),
   tubo: (
@@ -248,8 +263,42 @@ const paths: Record<string, React.ReactNode> = {
   ),
   dimension: (
     <>
-      <path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z" />
-      <path d="M12 3v9m0 0L4 7.5M12 12l8-4.5M12 12v9" />
+      <Cubo />
+    </>
+  ),
+  alto: (
+    <>
+      <Cubo />
+      <path d="M20.4 15.4V6.2" />
+      <path d="m18.8 7.8 1.6-1.6 1.6 1.6" />
+    </>
+  ),
+  ancho: (
+    <>
+      <Cubo />
+      <path d="M4.4 20.6h13.2" />
+      <path d="m16 19 1.6 1.6-1.6 1.6" />
+    </>
+  ),
+  profundo: (
+    <>
+      <Cubo />
+      <path d="m11.2 21.8-5.2-3" />
+      <path d="M8.7 18.6 6 18.8 7.5 16.5" />
+    </>
+  ),
+  largo: (
+    <>
+      <Cubo />
+      <path d="M3.4 20.6h15.2" />
+      <path d="m5 19-1.6 1.6L5 22.2M17 19l1.6 1.6-1.6 1.6" />
+    </>
+  ),
+  diametro: (
+    <>
+      <circle cx="12" cy="12" r="8.2" />
+      <path d="M5.2 12h13.6" />
+      <path d="m7.6 9.6-2.4 2.4 2.4 2.4M16.4 9.6l2.4 2.4-2.4 2.4" />
     </>
   ),
 
@@ -290,6 +339,30 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M12 7v5l3 2" />
     </>
   ),
+}
+
+/**
+ * Icono que le toca a cada medida. El catálogo dibuja el cubo con una flecha
+ * distinta según el eje, así que `Alto` y `Altura` comparten glifo, igual que
+ * `Profundo` y `Profundidad`.
+ */
+const dimensionIcons: Record<string, string> = {
+  alto: "alto",
+  altura: "alto",
+  ancho: "ancho",
+  profundo: "profundo",
+  profundidad: "profundo",
+  largo: "largo",
+  diametro: "diametro",
+}
+
+export function dimensionIcon(label: string): string {
+  const clave = label
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+  return dimensionIcons[clave] ?? "dimension"
 }
 
 /** Etiquetas de las funciones de los espejos, para la ficha de producto. */

@@ -5,7 +5,7 @@ import Link from "next/link"
 import React, { useState } from "react"
 import { FaWhatsapp } from "react-icons/fa"
 
-import ProductIcon, { functionLabels } from "components/icons/ProductIcons"
+import ProductIcon, { dimensionIcon, functionLabels } from "components/icons/ProductIcons"
 import { Product, ProductFinish } from "types/products"
 
 const WHATSAPP = "5213316966041"
@@ -112,20 +112,21 @@ export default function ProductDetailContent({ product, relatedProducts }: Produ
               {product.dimensions && product.dimensions.length > 0 && (
                 <div className="mb-8 border-t border-gray-100 pt-8">
                   <h2 className="mb-4 text-lg font-bold text-gray-900">Dimensiones</h2>
-                  <div className="flex items-center gap-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
-                    <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-primary-500 shadow-sm">
-                      <ProductIcon name="dimension" className="size-8" />
-                    </div>
-                    <div className="grid grow grid-cols-3 gap-6">
-                      {product.dimensions.map((dimension) => (
-                        <div key={dimension.label}>
-                          <span className="block text-xs font-semibold uppercase text-gray-500">
-                            {dimension.label}
-                          </span>
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                    {product.dimensions.map((dimension) => (
+                      <div
+                        key={dimension.label}
+                        className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3"
+                      >
+                        <div className="flex size-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-primary-500 shadow-sm">
+                          <ProductIcon name={dimensionIcon(dimension.label)} className="size-7" />
+                        </div>
+                        <div>
+                          <span className="block text-xs font-semibold uppercase text-gray-500">{dimension.label}</span>
                           <span className="block text-base font-bold text-gray-800">{dimension.value}</span>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
