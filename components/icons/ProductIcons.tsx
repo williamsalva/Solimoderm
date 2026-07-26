@@ -269,22 +269,22 @@ const paths: Record<string, React.ReactNode> = {
   alto: (
     <>
       <Cubo />
-      <path d="M20.4 15.4V6.2" />
-      <path d="m18.8 7.8 1.6-1.6 1.6 1.6" />
+      <path d="M19.8 15.2V5.8" />
+      <path d="m18.2 7.4 1.6-1.6 1.6 1.6" />
     </>
   ),
   ancho: (
     <>
       <Cubo />
-      <path d="M4.4 20.6h13.2" />
-      <path d="m16 19 1.6 1.6-1.6 1.6" />
+      <path d="M4.4 20h13.2" />
+      <path d="m16 18.4 1.6 1.6-1.6 1.6" />
     </>
   ),
   profundo: (
     <>
       <Cubo />
-      <path d="m11.2 21.8-5.2-3" />
-      <path d="M8.7 18.6 6 18.8 7.5 16.5" />
+      <path d="m7.6 22.4 9-5.2" />
+      <path d="M14.2 17.4 16.6 17.2 15.3 19.2" />
     </>
   ),
   largo: (
