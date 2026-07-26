@@ -230,42 +230,6 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   // --- funciones de espejo ---
-  led: (
-    <>
-      <path d="M9 18h6M10 21h4" />
-      <path d="M12 3a6 6 0 0 0-3 11v1h6v-1a6 6 0 0 0-3-11Z" />
-    </>
-  ),
-  touch: (
-    <>
-      <path d="M9 11V6a2 2 0 0 1 4 0v6" />
-      <path d="M13 12v-1a2 2 0 0 1 4 0v5a5 5 0 0 1-5 5h-1a4 4 0 0 1-3.2-1.6L5 15.5a1.6 1.6 0 0 1 2.4-2.1L9 15" />
-    </>
-  ),
-  dimeable: (
-    <>
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" />
-    </>
-  ),
-  bluetooth: (
-    <>
-      <path d="m7 7 10 10-5 4V3l5 4L7 17" />
-    </>
-  ),
-  desempanante: (
-    <>
-      <path d="M4 8h11a3 3 0 1 0-3-3" />
-      <path d="M4 13h14a3 3 0 1 1-3 3" />
-      <path d="M4 18h8" />
-    </>
-  ),
-  reloj: (
-    <>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
-    </>
-  ),
 }
 
 /**
@@ -322,6 +286,13 @@ const trazados: Record<string, string> = {
   espacio: "espacio",
   acabado: "acabado",
   jabon: "jabon",
+  // funciones de los espejos
+  touch: "touch",
+  bluetooth: "bluetooth",
+  dimeable: "dimeable",
+  led: "led",
+  desempanante: "desempanante",
+  reloj: "reloj",
 }
 
 export default function ProductIcon({ name, className, style, ...props }: { name: string } & IconProps) {
