@@ -34,12 +34,6 @@ const Cubo = () => (
 
 const paths: Record<string, React.ReactNode> = {
   // --- materiales y cuerpos ---
-  cristal: (
-    <>
-      <path d="M4 5h16v11H4z" />
-      <path d="m7 8 4 5M13 8l4 5" />
-    </>
-  ),
   ceramica: (
     <>
       <path d="M5 9h14l-1.5 9a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7L5 9Z" />
@@ -54,25 +48,6 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   // --- piezas de baño ---
-  mezcladora: (
-    <>
-      <path d="M12 21V10" />
-      <path d="M6 10h12a6 6 0 0 0-12 0Z" />
-      <path d="M8 21h8M12 10V4" />
-    </>
-  ),
-  tubo: (
-    <>
-      <path d="M4 8c3 0 3 8 6 8s3-8 6-8 3 8 4 8" />
-    </>
-  ),
-  cartucho: (
-    <>
-      <rect x="8" y="3" width="8" height="18" rx="2" />
-      <path d="M8 9h8M8 15h8" />
-    </>
-  ),
-  // --- cocina ---
   parrilla: (
     <>
       <rect x="3" y="7" width="18" height="12" rx="2" />
@@ -80,43 +55,6 @@ const paths: Record<string, React.ReactNode> = {
       <circle cx="16" cy="11" r="1.6" />
       <circle cx="8" cy="15.5" r="1.6" />
       <circle cx="16" cy="15.5" r="1.6" />
-    </>
-  ),
-  tarja: (
-    <>
-      <rect x="3" y="9" width="18" height="10" rx="2" />
-      <path d="M12 9V5a2 2 0 0 1 2-2h3" />
-      <circle cx="12" cy="14" r="2" />
-    </>
-  ),
-  tabla: (
-    <>
-      <path d="M6 4h9a4 4 0 0 1 0 14H6z" />
-      <path d="M18 4h2v4h-2" />
-    </>
-  ),
-  contracanasta: (
-    <>
-      <circle cx="12" cy="12" r="7" />
-      <path d="M12 5v14M5 12h14M7.5 7.5l9 9M16.5 7.5l-9 9" />
-    </>
-  ),
-  escurridor: (
-    <>
-      <path d="M3 8h18v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" />
-      <path d="M7 19h10" />
-    </>
-  ),
-  lavacopas: (
-    <>
-      <path d="M7 4h10l-1.5 6a4 4 0 0 1-7 0L7 4Z" />
-      <path d="M12 14v6M9 20h6" />
-    </>
-  ),
-  deposito: (
-    <>
-      <rect x="4" y="6" width="16" height="12" rx="2" />
-      <path d="M14 6v12" />
     </>
   ),
   garrafon: (
@@ -293,6 +231,17 @@ const trazados: Record<string, string> = {
   led: "led",
   desempanante: "desempanante",
   reloj: "reloj",
+  // cocina, tarjas y desagües
+  cristal: "capas",
+  tabla: "tabla",
+  contracanasta: "contracanasta",
+  cartucho: "cartucho",
+  tubo: "tubo",
+  tarja: "tarja",
+  mezcladora: "mezcladora",
+  escurridor: "escurridor",
+  lavacopas: "lavacopas",
+  deposito: "deposito",
 }
 
 export default function ProductIcon({ name, className, style, ...props }: { name: string } & IconProps) {
