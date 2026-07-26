@@ -34,12 +34,6 @@ const Cubo = () => (
 
 const paths: Record<string, React.ReactNode> = {
   // --- materiales y cuerpos ---
-  ceramica: (
-    <>
-      <path d="M5 9h14l-1.5 9a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7L5 9Z" />
-      <path d="M9 9V6a3 3 0 0 1 6 0v3" />
-    </>
-  ),
   marco: (
     <>
       <path d="M4 3h16v18H4z" />
@@ -48,15 +42,6 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   // --- piezas de baño ---
-  parrilla: (
-    <>
-      <rect x="3" y="7" width="18" height="12" rx="2" />
-      <circle cx="8" cy="11" r="1.6" />
-      <circle cx="16" cy="11" r="1.6" />
-      <circle cx="8" cy="15.5" r="1.6" />
-      <circle cx="16" cy="15.5" r="1.6" />
-    </>
-  ),
   garrafon: (
     <>
       <path d="M9 3h6v3l2 3v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3V3Z" />
@@ -65,54 +50,6 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   // --- inodoros y tanques ---
-  onepiece: (
-    <>
-      <path d="M7 3h9v5H7z" />
-      <path d="M6 8h11l-1 7a4 4 0 0 1-4 3H9l-3 3V8Z" />
-    </>
-  ),
-  asiento: (
-    <>
-      <ellipse cx="12" cy="12" rx="8" ry="6" />
-      <ellipse cx="12" cy="12" rx="4" ry="2.5" />
-    </>
-  ),
-  herraje: (
-    <>
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
-    </>
-  ),
-  presion: (
-    <>
-      <circle cx="12" cy="13" r="7" />
-      <path d="M12 13 15 9M12 4V2" />
-    </>
-  ),
-  flamable: (
-    <>
-      <path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 .5 1 1 1.5 2 1.5C11 7 12 5 12 3Z" />
-    </>
-  ),
-  norma: (
-    <>
-      <path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3Z" />
-      <path d="m9 12 2 2 4-4" />
-    </>
-  ),
-  pintura: (
-    <>
-      <rect x="4" y="4" width="12" height="7" rx="1" />
-      <path d="M16 7h3v4a2 2 0 0 1-2 2h-5v3h-2v-3" />
-    </>
-  ),
-  capacidad: (
-    <>
-      <path d="M6 3h12l-1 16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 3Z" />
-      <path d="M6.6 12h10.8" />
-    </>
-  ),
-
   // --- exhibidores / genéricos ---
   interior: (
     <>
@@ -242,6 +179,17 @@ const trazados: Record<string, string> = {
   escurridor: "escurridor",
   lavacopas: "lavacopas",
   deposito: "deposito",
+  // inodoros, tanque y parrillas
+  ceramica: "capas",
+  onepiece: "onepiece",
+  asiento: "asiento",
+  herraje: "herraje",
+  parrilla: "parrilla",
+  pintura: "pintura",
+  capacidad: "capacidad",
+  flamable: "flamable",
+  norma: "norma",
+  presion: "presion",
 }
 
 export default function ProductIcon({ name, className, style, ...props }: { name: string } & IconProps) {
