@@ -19,7 +19,7 @@ export default function Products({ productsList }: ProductsProps) {
                 src={product.image}
                 width={500}
                 height={500}
-                className="aspect-square w-full rounded-lg bg-gray-100 object-contain p-4 transition-transform duration-300 group-hover:-translate-y-2.5"
+                className="aspect-square w-full rounded-lg bg-white object-contain p-4 ring-1 ring-gray-200 transition duration-300 group-hover:-translate-y-2.5 group-hover:shadow-lg group-hover:ring-gray-300"
               />
               <h3 className="mt-4 text-xl font-bold">{product.name}</h3>
               <p className="text-sm text-gray-500">{product.model}</p>

@@ -32,7 +32,7 @@ export default function ProductDetailContent({ product, relatedProducts }: Produ
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           {/* Imagen principal y los tres datos de la ficha del catálogo */}
           <div className="flex flex-1 flex-col justify-between">
-            <div className="relative mx-auto flex aspect-square w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 p-4 shadow-sm">
+            <div className="relative mx-auto flex aspect-square w-full max-w-2xl items-center justify-center overflow-hidden rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -200,7 +200,7 @@ export default function ProductDetailContent({ product, relatedProducts }: Produ
                   href={`/producto/${related.slug}`}
                   className="group flex h-full flex-col justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                 >
-                  <div className="relative mb-4 flex aspect-square w-full items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
+                  <div className="relative mb-4 flex aspect-square w-full items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-white">
                     <Image
                       alt={related.name}
                       src={related.image}

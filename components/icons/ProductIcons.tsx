@@ -34,23 +34,6 @@ const Cubo = () => (
 
 const paths: Record<string, React.ReactNode> = {
   // --- materiales y cuerpos ---
-  mdf: (
-    <>
-      <path d="M12 3 3 7l9 4 9-4-9-4Z" />
-      <path d="M3 12l9 4 9-4M3 17l9 4 9-4" />
-    </>
-  ),
-  herreria: (
-    <>
-      <path d="M4 4v16M20 4v16M4 9h16M4 15h16" />
-    </>
-  ),
-  acero: (
-    <>
-      <path d="M4 6h16v4a8 8 0 0 1-16 0V6Z" />
-      <path d="M9 3v3M15 3v3" />
-    </>
-  ),
   cristal: (
     <>
       <path d="M4 5h16v11H4z" />
@@ -63,11 +46,6 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M9 9V6a3 3 0 0 1 6 0v3" />
     </>
   ),
-  cuerpo: (
-    <>
-      <path d="M8 3h8l-1 5 2 3v10H7V11l2-3-1-5Z" />
-    </>
-  ),
   marco: (
     <>
       <path d="M4 3h16v18H4z" />
@@ -76,20 +54,6 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   // --- piezas de baño ---
-  lavabo: (
-    <>
-      <ellipse cx="12" cy="8.6" rx="8" ry="3" />
-      <path d="M4 8.6c0 4.5 3.6 8.2 8 8.2s8-3.7 8-8.2" />
-      <ellipse cx="12" cy="10.4" rx="1.4" ry="0.7" />
-    </>
-  ),
-  loza: (
-    <>
-      <ellipse cx="12" cy="10" rx="9" ry="3.5" />
-      <path d="M3 10v1a9 3.5 0 0 0 18 0v-1" />
-      <path d="M6 15.5 7 20h10l1-4.5" />
-    </>
-  ),
   mezcladora: (
     <>
       <path d="M12 21V10" />
@@ -108,13 +72,6 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M8 9h8M8 15h8" />
     </>
   ),
-  acabado: (
-    <>
-      <circle cx="12" cy="12" r="8" />
-      <path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor" stroke="none" />
-    </>
-  ),
-
   // --- cocina ---
   parrilla: (
     <>
@@ -142,12 +99,6 @@ const paths: Record<string, React.ReactNode> = {
     <>
       <circle cx="12" cy="12" r="7" />
       <path d="M12 5v14M5 12h14M7.5 7.5l9 9M16.5 7.5l-9 9" />
-    </>
-  ),
-  jabon: (
-    <>
-      <path d="M9 8h6l1 11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2L9 8Z" />
-      <path d="M11 8V5a1 1 0 0 1 1-1h3" />
     </>
   ),
   escurridor: (
@@ -225,12 +176,6 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   // --- exhibidores / genéricos ---
-  espacio: (
-    <>
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M3 9h18M3 15h18M9 3v18" />
-    </>
-  ),
   interior: (
     <>
       <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -363,11 +308,26 @@ export const functionLabels: Record<string, string> = {
  * pesan en el bundle de JS: los paths trazados son demasiado grandes para
  * incrustarlos. El resto de iconos son de línea y van inline.
  */
-const trazados = new Set(["monomando", "cespol"])
+const trazados: Record<string, string> = {
+  monomando: "monomando",
+  cespol: "cespol",
+  // el catálogo usa un solo glifo de capas para cualquier material
+  mdf: "capas",
+  acero: "capas",
+  cuerpo: "capas",
+  herreria: "capas",
+  // y un solo tazón para lavabo y loza
+  lavabo: "tazon",
+  loza: "tazon",
+  espacio: "espacio",
+  acabado: "acabado",
+  jabon: "jabon",
+}
 
 export default function ProductIcon({ name, className, style, ...props }: { name: string } & IconProps) {
-  if (trazados.has(name)) {
-    const url = `url(/img/icons/${name}.svg)`
+  const archivo = trazados[name]
+  if (archivo) {
+    const url = `url(/img/icons/${archivo}.svg)`
     return (
       <span
         aria-hidden="true"
