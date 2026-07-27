@@ -139,6 +139,15 @@ const Hero: React.FC = () => {
     [isAnimating]
   )
 
+  // Auto-advance slide every 8 seconds (8000ms)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % PRODUCTS.length)
+    }, 8000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   const activeProduct = PRODUCTS[activeIndex] ?? PRODUCTS[0]!
 
   const getRole = (index: number): "center" | "left" | "right" | "back" => {
