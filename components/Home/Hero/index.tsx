@@ -138,9 +138,9 @@ const Hero: React.FC = () => {
           opacity: 1,
           zIndex: 20,
           left: "50%",
-          top: "52%",
-          width: isMobile ? "78%" : "72%",
-          height: isMobile ? "78%" : "72%",
+          top: "50%",
+          width: isMobile ? "75%" : "68%",
+          height: isMobile ? "75%" : "68%",
         }
       case "left":
         return {
@@ -149,9 +149,9 @@ const Hero: React.FC = () => {
           opacity: 0.55,
           zIndex: 10,
           left: isMobile ? "18%" : "20%",
-          top: "52%",
-          width: isMobile ? "55%" : "50%",
-          height: isMobile ? "55%" : "50%",
+          top: "50%",
+          width: isMobile ? "55%" : "48%",
+          height: isMobile ? "55%" : "48%",
         }
       case "right":
         return {
@@ -160,9 +160,9 @@ const Hero: React.FC = () => {
           opacity: 0.55,
           zIndex: 10,
           left: isMobile ? "82%" : "80%",
-          top: "52%",
-          width: isMobile ? "55%" : "50%",
-          height: isMobile ? "55%" : "50%",
+          top: "50%",
+          width: isMobile ? "55%" : "48%",
+          height: isMobile ? "55%" : "48%",
         }
       case "back":
         return {
@@ -201,7 +201,7 @@ const Hero: React.FC = () => {
 
         {/* Giant Architectural Ghost Text (Single line) */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[22%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[20%]"
+          className="pointer-events-none absolute inset-x-0 top-[20%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[18%]"
           style={{
             fontSize: "clamp(38px, 11.5vw, 155px)",
             lineHeight: 1,
@@ -214,8 +214,8 @@ const Hero: React.FC = () => {
           {activeProduct.ghostText}
         </div>
 
-        {/* Dedicated 3D Carousel Showcase Box (Strictly contained inside the right showcase region) */}
-        <div className="pointer-events-none absolute inset-x-4 top-[24%] bottom-[12%] z-3 flex items-center justify-center sm:bottom-[8%] sm:left-[38%] sm:right-8 sm:top-[20%]">
+        {/* Dedicated 3D Carousel Showcase Box (Strictly aligned inside the red box area) */}
+        <div className="pointer-events-none absolute inset-x-4 bottom-[8%] top-[34%] z-3 flex items-center justify-center sm:bottom-[8%] sm:left-[38%] sm:right-8 sm:top-[34%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
               const role = getRole(index)
