@@ -22,7 +22,7 @@ interface HeroProduct {
 const PRODUCTS: HeroProduct[] = [
   {
     id: 0,
-    src: "/hero/new_muebles_transparent.png",
+    src: "/hero/mueble-de-baño.png",
     bg: "#16466F", // Solimoderm Primary Blue
     ghostText: "MUEBLES DE BAÑO",
     ghostFontSize: "clamp(24px, 7vw, 105px)",
@@ -36,7 +36,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 1,
-    src: "/hero/new_tarjas_transparent.png",
+    src: "/hero/tarjas.png",
     bg: "#113D63", // Solimoderm Marine Blue
     ghostText: "TARJAS DE COCINA",
     ghostFontSize: "clamp(24px, 7vw, 105px)",
@@ -50,7 +50,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 2,
-    src: "/hero/new_espejos_transparent.png",
+    src: "/hero/Espejos.png",
     bg: "#0E385D", // Solimoderm Midnight Blue
     ghostText: "ESPEJOS LED",
     ghostFontSize: "clamp(34px, 10vw, 145px)",
@@ -64,7 +64,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 3,
-    src: "/hero/new_ovalin_transparent.png",
+    src: "/hero/ovalin.png",
     bg: "#1A507D", // Solimoderm Royal Slate
     ghostText: "OVALINES DE LUJO",
     ghostFontSize: "clamp(26px, 8vw, 120px)",
@@ -78,7 +78,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 4,
-    src: "/hero/new_monomando_transparent.png",
+    src: "/hero/monomando.png",
     bg: "#124B78", // Solimoderm Deep Ocean
     ghostText: "MONOMANDOS",
     ghostFontSize: "clamp(34px, 10vw, 145px)",
