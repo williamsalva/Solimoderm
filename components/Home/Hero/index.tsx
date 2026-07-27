@@ -133,43 +133,43 @@ const Hero: React.FC = () => {
     switch (role) {
       case "center":
         return {
-          transform: `translateX(-50%) scale(${isMobile ? 1.2 : 1.62})`,
+          transform: `translateX(-50%) scale(${isMobile ? 1.15 : 1.55})`,
           filter: "blur(0px) drop-shadow(0 20px 30px rgba(0,0,0,0.3))",
           opacity: 1,
           zIndex: 20,
           left: "50%",
-          height: isMobile ? "58%" : "84%",
-          bottom: isMobile ? "20%" : "2%",
+          height: isMobile ? "52%" : "78%",
+          bottom: isMobile ? "18%" : "2%",
         }
       case "left":
         return {
           transform: "translateX(-50%) scale(1)",
           filter: "blur(2.5px)",
-          opacity: 0.75,
+          opacity: 0.7,
           zIndex: 10,
           left: isMobile ? "18%" : "28%",
-          height: isMobile ? "16%" : "26%",
-          bottom: isMobile ? "30%" : "12%",
+          height: isMobile ? "15%" : "24%",
+          bottom: isMobile ? "28%" : "12%",
         }
       case "right":
         return {
           transform: "translateX(-50%) scale(1)",
           filter: "blur(2.5px)",
-          opacity: 0.75,
+          opacity: 0.7,
           zIndex: 10,
           left: isMobile ? "82%" : "72%",
-          height: isMobile ? "16%" : "26%",
-          bottom: isMobile ? "30%" : "12%",
+          height: isMobile ? "15%" : "24%",
+          bottom: isMobile ? "28%" : "12%",
         }
       case "back":
         return {
           transform: "translateX(-50%) scale(1)",
           filter: "blur(4px)",
-          opacity: 0.4,
+          opacity: 0.35,
           zIndex: 5,
           left: "50%",
-          height: isMobile ? "13%" : "20%",
-          bottom: isMobile ? "32%" : "14%",
+          height: isMobile ? "12%" : "18%",
+          bottom: isMobile ? "30%" : "14%",
         }
     }
   }
@@ -182,7 +182,8 @@ const Hero: React.FC = () => {
         transition: "background-color 650ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      <div className="relative h-screen w-full overflow-hidden">
+      {/* Respetamos la altura de la Navbar fija (~80px) mediante pt-20 / pt-24 */}
+      <div className="relative min-h-screen w-full overflow-hidden pt-20 sm:pt-24">
         
         {/* Grain Noise Overlay */}
         <div
@@ -194,24 +195,16 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text with Montserrat */}
+        {/* Giant Architectural Ghost Text (Posicionado debajo de la Navbar) */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[18%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15"
+          className="pointer-events-none absolute inset-x-0 top-[26%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
           style={{
-            fontSize: "clamp(60px, 20vw, 300px)",
+            fontSize: "clamp(55px, 18vw, 260px)",
             lineHeight: 0.9,
             transition: "opacity 650ms cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
           {activeProduct.ghostText}
-        </div>
-
-        {/* Header Kicker Badge */}
-        <div className="absolute left-4 top-6 z-[60] flex items-center gap-3 sm:left-8 sm:top-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
-            <HiOutlineSparkles className="h-4 w-4 text-amber-300" />
-            SOLIMODERM • COLECCIÓN 2026
-          </span>
         </div>
 
         {/* 3D Carousel Product Images */}
@@ -247,9 +240,16 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Left Side Glassmorphic Product Card */}
-        <div className="absolute bottom-6 left-4 z-[60] max-w-[340px] rounded-3xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:bottom-12 sm:left-12 sm:max-w-md sm:p-7">
-          <div className="mb-2 inline-flex rounded-full bg-white/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white sm:text-xs">
-            {activeProduct.categoryTag}
+        <div className="absolute bottom-6 left-4 z-[60] max-w-[330px] rounded-3xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:max-w-md sm:p-7">
+          {/* Header Badges Inside Card to avoid Navbar Collision */}
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md sm:text-xs">
+              <HiOutlineSparkles className="h-3.5 w-3.5 text-amber-300" />
+              COLECCIÓN 2026
+            </span>
+            <span className="inline-flex rounded-full bg-white/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-cyan-200 sm:text-xs">
+              {activeProduct.categoryTag}
+            </span>
           </div>
 
           <h1 className="text-2xl font-black leading-tight text-white sm:text-3xl">
@@ -264,11 +264,16 @@ const Hero: React.FC = () => {
             {activeProduct.description}
           </p>
 
+          {/* Spec Pill Inside Card */}
+          <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3.5 py-1.5 text-xs font-extrabold text-primary-500 shadow-md">
+            <span>{activeProduct.specPill}</span>
+          </div>
+
           {/* Buttons & Slide Navigation */}
           <div className="mt-5 flex items-center gap-4">
             <Link
               href={activeProduct.link}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-xs font-bold text-primary-500 shadow-lg transition-all duration-300 hover:bg-cyan-50 hover:shadow-xl sm:text-sm"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-bold text-primary-500 shadow-lg transition-all duration-300 hover:bg-cyan-50 hover:shadow-xl sm:px-6 sm:py-3 sm:text-sm"
             >
               <span>Explorar Producto</span>
               <HiOutlineArrowRight className="h-4 w-4" />
@@ -296,15 +301,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Floating Spec Pill Badge near top-right */}
-        <div className="absolute right-4 top-6 z-[60] sm:right-12 sm:top-8">
-          <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-4 py-2 text-xs font-extrabold text-primary-500 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105">
-            <span>{activeProduct.specPill}</span>
-          </div>
-        </div>
-
         {/* Bottom Right Slide Counter (01 / 04) */}
-        <div className="absolute bottom-6 right-4 z-[60] sm:bottom-12 sm:right-12">
+        <div className="absolute bottom-6 right-4 z-[60] sm:bottom-10 sm:right-12">
           <div className="flex items-center gap-2 font-black uppercase tracking-widest text-white/80">
             <span className="text-xl text-white sm:text-2xl">0{activeIndex + 1}</span>
             <span className="text-xs text-white/50 sm:text-sm">/ 0{PRODUCTS.length}</span>
