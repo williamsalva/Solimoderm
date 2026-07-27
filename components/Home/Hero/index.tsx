@@ -133,43 +133,47 @@ const Hero: React.FC = () => {
     switch (role) {
       case "center":
         return {
-          transform: `translateX(-50%) scale(${isMobile ? 1.15 : 1.55})`,
-          filter: "blur(0px) drop-shadow(0 20px 30px rgba(0,0,0,0.35))",
+          transform: "translate(-50%, -50%) scale(1.0)",
+          filter: "blur(0px) drop-shadow(0 25px 35px rgba(0,0,0,0.35))",
           opacity: 1,
           zIndex: 20,
-          left: isMobile ? "50%" : "65%",
-          height: isMobile ? "52%" : "78%",
-          bottom: isMobile ? "18%" : "2%",
+          left: "50%",
+          top: "52%",
+          width: isMobile ? "78%" : "72%",
+          height: isMobile ? "78%" : "72%",
         }
       case "left":
         return {
-          transform: "translateX(-50%) scale(1)",
-          filter: "blur(2.5px)",
-          opacity: 0.65,
+          transform: "translate(-50%, -50%) scale(0.65)",
+          filter: "blur(3px)",
+          opacity: 0.55,
           zIndex: 10,
-          left: isMobile ? "18%" : "48%",
-          height: isMobile ? "15%" : "24%",
-          bottom: isMobile ? "28%" : "12%",
+          left: isMobile ? "18%" : "20%",
+          top: "52%",
+          width: isMobile ? "55%" : "50%",
+          height: isMobile ? "55%" : "50%",
         }
       case "right":
         return {
-          transform: "translateX(-50%) scale(1)",
-          filter: "blur(2.5px)",
-          opacity: 0.65,
+          transform: "translate(-50%, -50%) scale(0.65)",
+          filter: "blur(3px)",
+          opacity: 0.55,
           zIndex: 10,
-          left: isMobile ? "82%" : "84%",
-          height: isMobile ? "15%" : "24%",
-          bottom: isMobile ? "28%" : "12%",
+          left: isMobile ? "82%" : "80%",
+          top: "52%",
+          width: isMobile ? "55%" : "50%",
+          height: isMobile ? "55%" : "50%",
         }
       case "back":
         return {
-          transform: "translateX(-50%) scale(1)",
-          filter: "blur(4px)",
-          opacity: 0.3,
+          transform: "translate(-50%, -50%) scale(0.45)",
+          filter: "blur(5px)",
+          opacity: 0.25,
           zIndex: 5,
-          left: isMobile ? "50%" : "65%",
-          height: isMobile ? "12%" : "18%",
-          bottom: isMobile ? "30%" : "14%",
+          left: "50%",
+          top: "35%",
+          width: isMobile ? "40%" : "35%",
+          height: isMobile ? "40%" : "35%",
         }
     }
   }
@@ -182,7 +186,7 @@ const Hero: React.FC = () => {
         transition: "background-color 650ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      {/* Respetamos la altura de la Navbar fija (~80px) mediante pt-20 / pt-24 */}
+      {/* Navbar clearance via pt-20 / pt-24 */}
       <div className="relative min-h-screen w-full overflow-hidden pt-20 sm:pt-24">
         
         {/* Grain Noise Overlay */}
@@ -195,7 +199,7 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text (En una sola línea continua) */}
+        {/* Giant Architectural Ghost Text (Single line) */}
         <div
           className="pointer-events-none absolute inset-x-0 top-[22%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[20%]"
           style={{
@@ -210,41 +214,44 @@ const Hero: React.FC = () => {
           {activeProduct.ghostText}
         </div>
 
-        {/* 3D Carousel Product Images */}
-        <div className="absolute inset-0 z-3">
-          {PRODUCTS.map((product, index) => {
-            const role = getRole(index)
-            const roleStyle = getRoleStyles(role)
+        {/* Dedicated 3D Carousel Showcase Box (Strictly contained inside the right showcase region) */}
+        <div className="pointer-events-none absolute inset-x-4 top-[24%] bottom-[12%] z-3 flex items-center justify-center sm:bottom-[8%] sm:left-[38%] sm:right-8 sm:top-[20%]">
+          <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
+            {PRODUCTS.map((product, index) => {
+              const role = getRole(index)
+              const roleStyle = getRoleStyles(role)
 
-            return (
-              <div
-                key={product.id}
-                style={{
-                  position: "absolute",
-                  aspectRatio: "0.6 / 1",
-                  willChange: "transform, filter, opacity, left, height, bottom",
-                  transition:
-                    "transform 650ms cubic-bezier(0.4, 0, 0.2, 1), filter 650ms cubic-bezier(0.4, 0, 0.2, 1), opacity 650ms cubic-bezier(0.4, 0, 0.2, 1), left 650ms cubic-bezier(0.4, 0, 0.2, 1), height 650ms cubic-bezier(0.4, 0, 0.2, 1), bottom 650ms cubic-bezier(0.4, 0, 0.2, 1)",
-                  ...roleStyle,
-                }}
-              >
-                <Image
-                  src={product.src}
-                  alt={product.title}
-                  fill
-                  priority={role === "center"}
-                  draggable={false}
-                  sizes="(max-width: 640px) 70vw, 50vw"
-                  className="h-full w-full pointer-events-none select-none object-contain object-bottom"
-                />
-              </div>
-            )
-          })}
+              return (
+                <div
+                  key={product.id}
+                  style={{
+                    position: "absolute",
+                    willChange: "transform, filter, opacity, left, top, width, height",
+                    transition:
+                      "transform 650ms cubic-bezier(0.4, 0, 0.2, 1), filter 650ms cubic-bezier(0.4, 0, 0.2, 1), opacity 650ms cubic-bezier(0.4, 0, 0.2, 1), left 650ms cubic-bezier(0.4, 0, 0.2, 1), top 650ms cubic-bezier(0.4, 0, 0.2, 1), width 650ms cubic-bezier(0.4, 0, 0.2, 1), height 650ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    ...roleStyle,
+                  }}
+                  className="flex items-center justify-center p-2"
+                >
+                  <div className="relative flex h-full w-full items-center justify-center">
+                    <Image
+                      src={product.src}
+                      alt={product.title}
+                      fill
+                      priority={role === "center"}
+                      draggable={false}
+                      sizes="(max-width: 640px) 70vw, 40vw"
+                      className="h-full w-full pointer-events-none select-none object-contain object-center drop-shadow-2xl"
+                    />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         {/* Left Side Glassmorphic Product Card */}
         <div className="absolute bottom-6 left-4 z-[60] max-w-[330px] rounded-3xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:max-w-md sm:p-7">
-          {/* Header Badges Inside Card to avoid Navbar Collision */}
           <div className="mb-3 flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md sm:text-xs">
               <HiOutlineSparkles className="h-3.5 w-3.5 text-amber-300" />
@@ -267,7 +274,6 @@ const Hero: React.FC = () => {
             {activeProduct.description}
           </p>
 
-          {/* Spec Pill Inside Card */}
           <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3.5 py-1.5 text-xs font-extrabold text-primary-500 shadow-md">
             <span>{activeProduct.specPill}</span>
           </div>
