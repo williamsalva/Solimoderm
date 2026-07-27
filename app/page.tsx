@@ -30,9 +30,7 @@ export const metadata: Metadata = {
 export default function Web() {
   return (
     <Layout>
-      <div className="flex min-h-32 items-center justify-center p-6">
-        <Hero />
-      </div>
+      <Hero />
       <section className="my-8 mx-4 sm:my-16 sm:mx-16 rounded-[28px] sm:rounded-[50px] bg-[#F4FAFF]">
         <div className="mx-auto">
           <CardProducts />
