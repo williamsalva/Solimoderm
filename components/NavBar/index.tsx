@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react"
 import { useMediaQuery } from "react-responsive"
 import Image from "next/image"
 
+import SearchBar from "components/SearchBar"
 import categories from "data/categories"
 
 const links = [
@@ -14,6 +15,7 @@ const links = [
     label: "Productos",
     subLinks: categories.map((category) => ({ href: `/${category.slug}`, label: category.name })),
   },
+  { href: "/catalogo", label: "Catálogo 2026" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/distribuidores", label: "Distribuidores" },
   { href: "/clips", label: "Clips" },
@@ -58,52 +60,56 @@ const NavBar = () => {
         )}
 
         {isDesktop ? (
-          <nav className="flex space-x-4">
-            {links.map((link) => (
-              <div key={link.label} className="relative">
-                <a
-                  href={link.href}
-                  className={`block flex items-center rounded px-4 py-2 ${textColor} hover:bg-gray-300`}
-                  onClick={(e) => {
-                    if (link.subLinks) {
-                      e.preventDefault()
-                      setIsSubMenuOpen(!isSubMenuOpen)
-                    }
-                  }}
-                >
-                  {link.label}
-                  {link.subLinks && (
-                    <svg
-                      className={`ml-2 h-4 w-4 transition-transform ${isSubMenuOpen ? "rotate-180" : ""}`}
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+          <div className="flex items-center space-x-4">
+            <nav className="flex space-x-4">
+              {links.map((link) => (
+                <div key={link.label} className="relative">
+                  <a
+                    href={link.href}
+                    className={`block flex items-center rounded px-4 py-2 ${textColor} hover:bg-gray-300`}
+                    onClick={(e) => {
+                      if (link.subLinks) {
+                        e.preventDefault()
+                        setIsSubMenuOpen(!isSubMenuOpen)
+                      }
+                    }}
+                  >
+                    {link.label}
+                    {link.subLinks && (
+                      <svg
+                        className={`ml-2 h-4 w-4 transition-transform ${isSubMenuOpen ? "rotate-180" : ""}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                  </a>
+                  {link.subLinks && isSubMenuOpen && (
+                    <ul className="bg-primary-500 absolute mt-2 space-y-2 rounded shadow-lg">
+                      {link.subLinks.map((subLink) => (
+                        <li key={subLink.label}>
+                          <a
+                            href={subLink.href}
+                            className="hover:text-primary-500 block rounded px-4 py-2 text-white hover:bg-gray-300"
+                          >
+                            {subLink.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </a>
-                {link.subLinks && isSubMenuOpen && (
-                  <ul className="bg-primary-500 absolute mt-2 space-y-2 rounded shadow-lg">
-                    {link.subLinks.map((subLink) => (
-                      <li key={subLink.label}>
-                        <a
-                          href={subLink.href}
-                          className="hover:text-primary-500 block rounded px-4 py-2 text-white hover:bg-gray-300"
-                        >
-                          {subLink.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </nav>
+                </div>
+              ))}
+            </nav>
+            <SearchBar textColor={textColor} />
+          </div>
         ) : (
-          <>
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none lg:hidden">
+          <div className="flex items-center space-x-2">
+            <SearchBar textColor={textColor} />
+            <button onClick={() => setIsOpen(!isOpen)} className={`${textColor} focus:outline-none lg:hidden`}>
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -175,7 +181,7 @@ const NavBar = () => {
                 ))}
               </ul>
             </motion.div>
-          </>
+          </div>
         )}
       </div>
     </header>

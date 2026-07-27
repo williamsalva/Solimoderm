@@ -45,6 +45,8 @@ export interface Product {
   variant?: string
   category: CategorySlug
   image: string
+  /** Dibujo técnico acotado, como el que el catálogo pone bajo la ficha. */
+  blueprint?: string
   description: string
   model: string
   brand: string
@@ -61,4 +63,6 @@ export interface Category {
   name: string
   /** Texto corto para la portada y las tarjetas. */
   tagline: string
+  /** Las destacadas ocupan una fila completa en la portada. */
+  featured?: boolean
 }

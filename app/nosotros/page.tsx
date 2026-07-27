@@ -12,7 +12,7 @@ const nosotros = () => {
   return (
     <Layout>
       <section className="container mx-auto mt-20 min-h-82 py-20">
-        <h1 className="text-center text-6xl sm:text-8xl font-bold">Nosotros</h1>
+        <h1 className="text-center text-6xl font-bold text-primary-500 sm:text-8xl">Nosotros</h1>
         <div className="my-20 flex flex-col items-center justify-center p-10 md:flex-row">
           <div className="w-full md:w-1/2 sm:mr-5">
             <Image

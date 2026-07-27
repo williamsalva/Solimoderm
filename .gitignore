@@ -37,5 +37,6 @@ storybook-static/
 # typescript incremental build
 tsconfig.tsbuildinfo
 
-# catalogo fuente (123 MB, no versionar)
+# catalogo fuente (123 MB, no versionar; en public/ va la version comprimida)
 Catalogo.pdf
+CATÁLOGO_2026.pdf

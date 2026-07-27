@@ -6,6 +6,7 @@ const categories: Category[] = [
     slug: "muebles-de-bano",
     name: "Muebles de baño",
     tagline: "Sets flotantes, de piso y metálicos con lavabo y monomando incluidos",
+    featured: true,
   },
   {
     slug: "muebles-de-cocina",
@@ -16,6 +17,7 @@ const categories: Category[] = [
     slug: "tarjas",
     name: "Tarjas de cocina",
     tagline: "Tarjas de acero inoxidable con accesorios",
+    featured: true,
   },
   {
     slug: "espejos",

@@ -193,7 +193,7 @@ const ovalinesProducts: Product[] = [
     title: "Ovalin de mármol",
     category: "ovalines",
     image: "/img/ovalines/ovalin-de-marmol-dona-rayado-omdr5467.webp",
-    description: "Ovalin de mármol dona rayado modelo OMDR5467 de Solimoderm. Medidas: diámetro 40cm, altura 13 cm.",
+    description: "Ovalin de mármol dona rayado modelo OMDR5467 de Solimoderm. Medidas: diámetro 40 cm, altura 13 cm.",
     model: "OMDR5467",
     brand: "SOLIMODERM",
     masterBox: "1 PIEZA",
@@ -201,7 +201,7 @@ const ovalinesProducts: Product[] = [
     dimensions: [
       {
         label: "Diámetro",
-        value: "40cm",
+        value: "40 cm",
       },
       {
         label: "Altura",
@@ -216,7 +216,7 @@ const ovalinesProducts: Product[] = [
     title: "Ovalin de mármol",
     category: "ovalines",
     image: "/img/ovalines/ovalin-de-marmol-dona-liso-omdl1803.webp",
-    description: "Ovalin de mármol dona liso modelo OMDL1803 de Solimoderm. Medidas: diámetro 40cm, altura 13 cm.",
+    description: "Ovalin de mármol dona liso modelo OMDL1803 de Solimoderm. Medidas: diámetro 40 cm, altura 13 cm.",
     model: "OMDL1803",
     brand: "SOLIMODERM",
     masterBox: "1 PIEZA",
@@ -224,7 +224,7 @@ const ovalinesProducts: Product[] = [
     dimensions: [
       {
         label: "Diámetro",
-        value: "40cm",
+        value: "40 cm",
       },
       {
         label: "Altura",

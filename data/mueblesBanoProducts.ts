@@ -763,7 +763,7 @@ const mueblesBanoProducts: Product[] = [
     title: "Set mueble de baño",
     category: "muebles-de-bano",
     image: "/img/muebles-de-bano/set-mueble-de-bano-de-piso-conln-50.webp",
-    description: "Set mueble de baño de piso modelo CONLN-50 de Solimoderm. Incluye mueble de MDF, loza de cerámica negra y monomando cromo. Medidas: alto 83 cm, ancho 50 cm, ancho 39 cm.",
+    description: "Set mueble de baño de piso modelo CONLN-50 de Solimoderm. Incluye mueble de MDF, loza de cerámica negra y monomando cromo. Medidas: alto 83 cm, ancho 50 cm, profundo 39 cm.",
     model: "CONLN-50",
     brand: "SOLIMODERM",
     masterBox: "1 PIEZA",
@@ -778,7 +778,7 @@ const mueblesBanoProducts: Product[] = [
         value: "50 cm",
       },
       {
-        label: "Ancho",
+        label: "Profundo",
         value: "39 cm",
       },
     ],

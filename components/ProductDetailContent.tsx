@@ -43,6 +43,21 @@ export default function ProductDetailContent({ product, relatedProducts }: Produ
               />
             </div>
 
+            {/* El catálogo pone el dibujo acotado bajo la foto, antes de los datos. */}
+            {product.blueprint && (
+              <div className="mx-auto mt-8 w-full max-w-2xl rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Ficha técnica</h2>
+                <Image
+                  src={product.blueprint}
+                  alt={`Dibujo acotado de ${product.name}`}
+                  width={800}
+                  height={560}
+                  className="mx-auto h-auto w-full"
+                />
+                <p className="mt-2 text-center text-xs text-gray-500">Medidas en milímetros</p>
+              </div>
+            )}
+
             <div className="mx-auto mt-8 grid w-full max-w-2xl grid-cols-3 gap-4">
               {[
                 { label: "Modelo", value: currentModel },
