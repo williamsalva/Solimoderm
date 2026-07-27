@@ -195,12 +195,15 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text (Posicionado debajo de la Navbar) */}
+        {/* Giant Architectural Ghost Text (En una sola línea continua) */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[26%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
+          className="pointer-events-none absolute inset-x-0 top-[22%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[20%]"
           style={{
-            fontSize: "clamp(55px, 18vw, 260px)",
-            lineHeight: 0.9,
+            fontSize: "clamp(38px, 11.5vw, 155px)",
+            lineHeight: 1,
+            whiteSpace: "nowrap",
+            width: "100%",
+            overflow: "hidden",
             transition: "opacity 650ms cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
