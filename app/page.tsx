@@ -33,7 +33,7 @@ export default function Web() {
       <div className="flex min-h-32 items-center justify-center p-6">
         <Hero />
       </div>
-      <section className="m-5 sm:m-20" style={{ backgroundColor: "#F4FAFF",borderRadius: "50px" }}>
+      <section className="my-8 mx-4 sm:my-16 sm:mx-16 rounded-[28px] sm:rounded-[50px] bg-[#F4FAFF]">
         <div className="mx-auto">
           <CardProducts />
         </div>
@@ -42,10 +42,10 @@ export default function Web() {
       <section>
         <UsDifferent />
       </section>
-      <div className="my-20 flex items-center justify-center">
-              <FaqSection />
-              </div>
-      <section style={{ backgroundColor: "#F4FAFF", margin: "50px", borderRadius: "50px" }}>
+      <div className="my-16 flex items-center justify-center">
+        <FaqSection />
+      </div>
+      <section className="my-8 mx-4 sm:my-16 sm:mx-16 overflow-hidden rounded-[28px] sm:rounded-[50px]">
         <CallToAction />
       </section>
     </Layout>

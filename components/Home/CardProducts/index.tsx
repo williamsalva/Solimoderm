@@ -23,7 +23,7 @@ const CardProducts = () => (
         <span className="inline-flex rounded-full bg-primary-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em]">
           Catálogo 2026
         </span>
-        <h2 className="mt-5 text-4xl font-bold sm:text-6xl lg:text-7xl">Nuestros Productos</h2>
+        <h2 className="mt-5 text-4xl font-bold text-primary-500 sm:text-6xl lg:text-7xl">Nuestros Productos</h2>
         <p className="mx-auto mt-4 max-w-2xl text-base text-gray-600 sm:text-lg">
           Descubre los productos que tenemos para ti. Diseños exclusivos y calidad inigualable.
         </p>

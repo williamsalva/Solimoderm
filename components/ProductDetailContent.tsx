@@ -58,17 +58,19 @@ export default function ProductDetailContent({ product, relatedProducts }: Produ
               </div>
             )}
 
-            <div className="mx-auto mt-8 grid w-full max-w-2xl grid-cols-3 gap-4">
+            <div className="mx-auto mt-6 grid w-full max-w-2xl grid-cols-3 gap-2 text-center sm:gap-4">
               {[
                 { label: "Modelo", value: currentModel },
                 { label: "Marca", value: product.brand },
                 { label: "Caja máster", value: product.masterBox },
               ].map((badge) => (
-                <div key={badge.label} className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
-                  <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <div key={badge.label} className="rounded-xl border border-gray-200 bg-gray-50 p-2.5 sm:p-4">
+                  <span className="mb-1 block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500">
                     {badge.label}
                   </span>
-                  <span className="block text-base font-bold text-gray-800 sm:text-lg">{badge.value}</span>
+                  <span className="block truncate text-xs font-bold text-gray-800 sm:text-lg" title={badge.value}>
+                    {badge.value}
+                  </span>
                 </div>
               ))}
             </div>
@@ -208,7 +210,7 @@ export default function ProductDetailContent({ product, relatedProducts }: Produ
         <section className="mt-12 border-t border-gray-200/50 bg-gray-50 px-4 py-20 sm:px-6 lg:px-8">
           <div className="container mx-auto">
             <h2 className="mb-12 text-center text-3xl font-black text-gray-900">Productos relacionados</h2>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
               {relatedProducts.map((related) => (
                 <Link
                   key={related.id}
