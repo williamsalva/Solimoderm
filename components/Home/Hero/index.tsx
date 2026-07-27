@@ -62,15 +62,15 @@ const slides: Slide[] = [
   {
     id: 4,
     tag: "Alta Resistencia",
-    title: "Tarjas y Fregaderos de Acero Inoxidable",
+    title: "Tarja Submontable T7546-KIT Satín",
     subtitle: "Funcionalidad Premium para Cocina",
     description:
-      "Tarjas de una y dos tinas con accesorios completos, recubrimiento antirruido y acabados satinados o de alto impacto.",
-    image: "/img/hero-tarja.png",
-    badgeText: "Acero de Alto Impacto",
-    badgeIcon: <HiOutlineTruck className="h-5 w-5 text-indigo-500" />,
-    ctaText: "Ver Tarjas",
-    ctaLink: "/tarjas",
+      "Tarja de acero inoxidable calibre 18 con kit completo de accesorios: lavacopas automático, tabla de picar, escurridor y dispensador de jabón integrado.",
+    image: "/img/tarjas/tarja-submontable-con-accesorios-t7546-kit-satin.webp",
+    badgeText: "Kit Completo con Lavacopas",
+    badgeIcon: <HiOutlineSparkles className="h-5 w-5 text-indigo-500" />,
+    ctaText: "Ver Tarja T7546",
+    ctaLink: "/producto/tarja-submontable-con-accesorios-t7546-kit-satin",
   },
 ]
 
