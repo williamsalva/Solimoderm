@@ -20,7 +20,12 @@ const config: NextConfig = {
     { source: "/ping", destination: "/api/health" },
   ],
   images: {
-    domains: ["tailwindui.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "tailwindui.com",
+      },
+    ],
   },
 }
 
