@@ -10,6 +10,7 @@ interface HeroProduct {
   src: string
   bg: string
   ghostText: string
+  ghostFontSize: string
   categoryTag: string
   title: string
   subtitle: string
@@ -24,6 +25,7 @@ const PRODUCTS: HeroProduct[] = [
     src: "/img/hero-mueble-set-transparent.png",
     bg: "#16466F", // Solimoderm Primary Blue
     ghostText: "MUEBLES DE BAÑO",
+    ghostFontSize: "clamp(24px, 7vw, 105px)",
     categoryTag: "LÍNEA DE BAÑO",
     title: "MUEBLES DE BAÑO",
     subtitle: "Diseño Vanguardista e Impermeable",
@@ -37,6 +39,7 @@ const PRODUCTS: HeroProduct[] = [
     src: "/img/hero-tarja-transparent.png",
     bg: "#113D63", // Solimoderm Marine Blue
     ghostText: "TARJAS DE COCINA",
+    ghostFontSize: "clamp(24px, 7vw, 105px)",
     categoryTag: "LÍNEA DE COCINA",
     title: "TARJAS DE COCINA",
     subtitle: "Acero Inoxidable & Accesorios",
@@ -50,6 +53,7 @@ const PRODUCTS: HeroProduct[] = [
     src: "/img/hero-espejo-clean-transparent.png",
     bg: "#0E385D", // Solimoderm Midnight Blue
     ghostText: "ESPEJOS LED",
+    ghostFontSize: "clamp(34px, 10vw, 145px)",
     categoryTag: "TECNOLOGÍA & ILUMINACIÓN",
     title: "ESPEJOS LED & BLUETOOTH",
     subtitle: "Touch & Antivaho Inteligente",
@@ -63,6 +67,7 @@ const PRODUCTS: HeroProduct[] = [
     src: "/img/ovalinProd.png",
     bg: "#1A507D", // Solimoderm Royal Slate
     ghostText: "OVALINES DE LUJO",
+    ghostFontSize: "clamp(26px, 8vw, 120px)",
     categoryTag: "DISEÑO EXCLUSIVO",
     title: "OVALINES DE LUJO",
     subtitle: "Mármol y Cristal Templado",
@@ -76,6 +81,7 @@ const PRODUCTS: HeroProduct[] = [
     src: "/img/hero-monomando-transparent.png",
     bg: "#124B78", // Solimoderm Deep Ocean
     ghostText: "MONOMANDOS",
+    ghostFontSize: "clamp(34px, 10vw, 145px)",
     categoryTag: "GRIFERÍA PREMIUM",
     title: "MONOMANDOS Y GRIFERÍA",
     subtitle: "Estilos Modernos para Baño y Cocina",
@@ -212,11 +218,11 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text (Single line) */}
+        {/* Giant Architectural Ghost Text (Ajustado dinámicamente según la longitud de cada categoría) */}
         <div
           className="pointer-events-none absolute inset-x-0 top-[20%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[18%]"
           style={{
-            fontSize: "clamp(38px, 11.5vw, 155px)",
+            fontSize: activeProduct.ghostFontSize,
             lineHeight: 1,
             whiteSpace: "nowrap",
             width: "100%",
