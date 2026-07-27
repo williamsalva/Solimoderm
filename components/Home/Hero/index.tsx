@@ -133,47 +133,47 @@ const Hero: React.FC = () => {
     switch (role) {
       case "center":
         return {
-          transform: "translate(-50%, -50%) scale(1.0)",
-          filter: "blur(0px) drop-shadow(0 25px 35px rgba(0,0,0,0.35))",
+          transform: "translate(-50%, -50%) scale(1.3)",
+          filter: "blur(0px) drop-shadow(0 30px 45px rgba(0,0,0,0.4))",
           opacity: 1,
           zIndex: 20,
           left: "50%",
-          top: "50%",
-          width: isMobile ? "75%" : "68%",
-          height: isMobile ? "75%" : "68%",
+          top: "54%",
+          width: isMobile ? "85%" : "90%",
+          height: isMobile ? "85%" : "90%",
         }
       case "left":
         return {
-          transform: "translate(-50%, -50%) scale(0.65)",
+          transform: "translate(-50%, -50%) scale(0.7)",
           filter: "blur(3px)",
-          opacity: 0.55,
+          opacity: 0.5,
           zIndex: 10,
-          left: isMobile ? "18%" : "20%",
-          top: "50%",
-          width: isMobile ? "55%" : "48%",
-          height: isMobile ? "55%" : "48%",
+          left: isMobile ? "12%" : "15%",
+          top: "54%",
+          width: isMobile ? "60%" : "60%",
+          height: isMobile ? "60%" : "60%",
         }
       case "right":
         return {
-          transform: "translate(-50%, -50%) scale(0.65)",
+          transform: "translate(-50%, -50%) scale(0.7)",
           filter: "blur(3px)",
-          opacity: 0.55,
+          opacity: 0.5,
           zIndex: 10,
-          left: isMobile ? "82%" : "80%",
-          top: "50%",
-          width: isMobile ? "55%" : "48%",
-          height: isMobile ? "55%" : "48%",
+          left: isMobile ? "88%" : "85%",
+          top: "54%",
+          width: isMobile ? "60%" : "60%",
+          height: isMobile ? "60%" : "60%",
         }
       case "back":
         return {
-          transform: "translate(-50%, -50%) scale(0.45)",
+          transform: "translate(-50%, -50%) scale(0.48)",
           filter: "blur(5px)",
-          opacity: 0.25,
+          opacity: 0.2,
           zIndex: 5,
           left: "50%",
-          top: "35%",
-          width: isMobile ? "40%" : "35%",
-          height: isMobile ? "40%" : "35%",
+          top: "38%",
+          width: isMobile ? "45%" : "45%",
+          height: isMobile ? "45%" : "45%",
         }
     }
   }
@@ -214,8 +214,8 @@ const Hero: React.FC = () => {
           {activeProduct.ghostText}
         </div>
 
-        {/* Dedicated 3D Carousel Showcase Box (Strictly aligned inside the red box area) */}
-        <div className="pointer-events-none absolute inset-x-4 bottom-[8%] top-[34%] z-3 flex items-center justify-center sm:bottom-[8%] sm:left-[38%] sm:right-8 sm:top-[34%]">
+        {/* Dedicated 3D Carousel Showcase Box (Lower position & ~2x larger product scale) */}
+        <div className="pointer-events-none absolute inset-x-2 bottom-[4%] top-[36%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[38%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
               const role = getRole(index)
