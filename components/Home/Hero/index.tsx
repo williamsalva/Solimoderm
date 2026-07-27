@@ -1,257 +1,300 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useEffect, useState } from "react"
-import { HiOutlineArrowRight, HiOutlineBookOpen, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineSparkles, HiOutlineTruck } from "react-icons/hi2"
+import React, { useCallback, useEffect, useRef, useState } from "react"
+import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2"
 
-interface Slide {
+interface HeroProduct {
   id: number
-  tag: string
+  src: string
+  bg: string
+  ghostText: string
+  categoryTag: string
   title: string
-  subtitle: string
   description: string
-  image: string
-  badgeText: string
-  badgeIcon: React.ReactNode
-  ctaText: string
-  ctaLink: string
+  link: string
 }
 
-const slides: Slide[] = [
+const PRODUCTS: HeroProduct[] = [
+  {
+    id: 0,
+    src: "/img/hero-ovalin.png",
+    bg: "#16466F", // Solimoderm Deep Primary Blue
+    ghostText: "OVALINES 3D",
+    categoryTag: "SOLIMODERM OVALINES",
+    title: "OVALÍN MARMOLEADO DE CRISTAL",
+    description:
+      "Artesanía en cristal templado con acabado marmoleado premium, tecnología anti-manchas y resistencia superior para tu baño.",
+    link: "/ovalines",
+  },
   {
     id: 1,
-    tag: "Novedad 2026",
-    title: "Ovalines de Mármol y Cristal Templado",
-    subtitle: "Diseño Exclusivo para Tu Hogar",
+    src: "/img/espejoProd.png",
+    bg: "#0E385D", // Solimoderm Midnight Blue
+    ghostText: "LUZ & TOUCH",
+    categoryTag: "SOLIMODERM ESPEJOS",
+    title: "ESPEJO LED BLUETOOTH INTELLIGENT",
     description:
-      "Transforma tu baño con piezas únicas en acabado marmoleado, alta durabilidad y tecnología anti-manchas. Calidad premium importada directo de fábrica.",
-    image: "/img/hero-ovalin.png",
-    badgeText: "Diseño Marmoleado",
-    badgeIcon: <HiOutlineSparkles className="h-5 w-5 text-amber-500" />,
-    ctaText: "Ver Ovalines",
-    ctaLink: "/ovalines",
+      "Iluminación LED táctil dimeable, altavoces Bluetooth estéreo de alta definición y sistema antivaho inteligente integrado.",
+    link: "/espejos",
   },
   {
     id: 2,
-    tag: "Tecnología Avanzada",
-    title: "Espejos LED Inteligentes y Bluetooth",
-    subtitle: "Iluminación Táctil y Desempañante",
+    src: "/img/hero-mueble.png",
+    bg: "#1A507D", // Solimoderm Slate Blue
+    ghostText: "DISEÑO 2026",
+    categoryTag: "SOLIMODERM MUEBLES",
+    title: "SET MUEBLE DE BAÑO FLOTANTE",
     description:
-      "Espejos multifunción con luces LED dimeables, sensor touch de un toque, altavoces Bluetooth y sistema antivaho integrado.",
-    image: "/img/espejoProd.png",
-    badgeText: "Luces LED Dimeables",
-    badgeIcon: <HiOutlineSparkles className="h-5 w-5 text-blue-500" />,
-    ctaText: "Ver Espejos",
-    ctaLink: "/espejos",
+      "Muebles vanguardistas con estructuras impermeables al agua, lavabos cerámicos integrados y amplio almacenamiento modular.",
+    link: "/muebles-de-bano",
   },
   {
     id: 3,
-    tag: "Tendencia en Interiores",
-    title: "Muebles de Baño Flotantes y de Piso",
-    subtitle: "Estilo Vanguardista y Almacenamiento",
+    src: "/img/tarjas/tarja-submontable-con-accesorios-t7546-kit-satin.webp",
+    bg: "#113D63", // Solimoderm Marine Blue
+    ghostText: "EDICIÓN CHEF",
+    categoryTag: "SOLIMODERM TARJAS",
+    title: "TARJA T7546 CON LAVACOPAS",
     description:
-      "Muebles con acabados resistentes a la humedad, lavabos integrados y amplios compartimentos para un espacio limpio y elegante.",
-    image: "/img/hero-mueble.png",
-    badgeText: "Resistentes a la Humedad",
-    badgeIcon: <HiOutlineSparkles className="h-5 w-5 text-emerald-500" />,
-    ctaText: "Ver Muebles",
-    ctaLink: "/muebles-de-bano",
-  },
-  {
-    id: 4,
-    tag: "Alta Resistencia",
-    title: "Tarja Submontable T7546-KIT Satín",
-    subtitle: "Funcionalidad Premium para Cocina",
-    description:
-      "Tarja de acero inoxidable calibre 18 con kit completo de accesorios: lavacopas automático, tabla de picar, escurridor y dispensador de jabón integrado.",
-    image: "/img/tarjas/tarja-submontable-con-accesorios-t7546-kit-satin.webp",
-    badgeText: "Kit Completo con Lavacopas",
-    badgeIcon: <HiOutlineSparkles className="h-5 w-5 text-indigo-500" />,
-    ctaText: "Ver Tarja T7546",
-    ctaLink: "/producto/tarja-submontable-con-accesorios-t7546-kit-satin",
+      "Acero inoxidable calibre 18 de alta resistencia con kit completo: lavacopas automático, tabla de picar y contracanasta.",
+    link: "/producto/tarja-submontable-con-accesorios-t7546-kit-satin",
   },
 ]
 
+// Fractal noise SVG data URI for subtle grain texture
+const GRAIN_SVG_URI =
+  "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E"
+
 const Hero: React.FC = () => {
-  const [current, setCurrent] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+  const [isAnimating, setIsAnimating] = useState<boolean>(false)
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const animationTimerRef = useRef<NodeJS.Timeout | null>(null)
 
+  // Handle window resize for mobile breakpoint
   useEffect(() => {
-    if (!isAutoPlaying) return
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [isAutoPlaying])
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
-  const nextSlide = () => {
-    setIsAutoPlaying(false)
-    setCurrent((prev) => (prev + 1) % slides.length)
+  // Preload product images on mount
+  useEffect(() => {
+    PRODUCTS.forEach((product) => {
+      const img = new window.Image()
+      img.src = product.src
+    })
+  }, [])
+
+  // Navigation logic with 650ms animation lock
+  const navigate = useCallback(
+    (direction: "next" | "prev") => {
+      if (isAnimating) return
+      setIsAnimating(true)
+
+      setActiveIndex((prev) => {
+        if (direction === "next") {
+          return (prev + 1) % PRODUCTS.length
+        }
+        return (prev + 3) % PRODUCTS.length
+      })
+
+      if (animationTimerRef.current) clearTimeout(animationTimerRef.current)
+      animationTimerRef.current = setTimeout(() => {
+        setIsAnimating(false)
+      }, 650)
+    },
+    [isAnimating]
+  )
+
+  const activeProduct = PRODUCTS[activeIndex] ?? PRODUCTS[0]!
+
+  // Determine relative 3D roles based on activeIndex
+  const getRole = (index: number): "center" | "left" | "right" | "back" => {
+    if (index === activeIndex) return "center"
+    if (index === (activeIndex + 3) % 4) return "left"
+    if (index === (activeIndex + 1) % 4) return "right"
+    return "back"
   }
 
-  const prevSlide = () => {
-    setIsAutoPlaying(false)
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
+  // Get inline 3D positioning styles for each role
+  const getRoleStyles = (role: "center" | "left" | "right" | "back"): React.CSSProperties => {
+    switch (role) {
+      case "center":
+        return {
+          transform: `translateX(-50%) scale(${isMobile ? 1.25 : 1.68})`,
+          filter: "blur(0px)",
+          opacity: 1,
+          zIndex: 20,
+          left: "50%",
+          height: isMobile ? "60%" : "88%",
+          bottom: isMobile ? "22%" : "0%",
+        }
+      case "left":
+        return {
+          transform: "translateX(-50%) scale(1)",
+          filter: "blur(2px)",
+          opacity: 0.85,
+          zIndex: 10,
+          left: isMobile ? "20%" : "30%",
+          height: isMobile ? "16%" : "28%",
+          bottom: isMobile ? "32%" : "12%",
+        }
+      case "right":
+        return {
+          transform: "translateX(-50%) scale(1)",
+          filter: "blur(2px)",
+          opacity: 0.85,
+          zIndex: 10,
+          left: isMobile ? "80%" : "70%",
+          height: isMobile ? "16%" : "28%",
+          bottom: isMobile ? "32%" : "12%",
+        }
+      case "back":
+        return {
+          transform: "translateX(-50%) scale(1)",
+          filter: "blur(4px)",
+          opacity: 1,
+          zIndex: 5,
+          left: "50%",
+          height: isMobile ? "13%" : "22%",
+          bottom: isMobile ? "32%" : "12%",
+        }
+    }
   }
-
-  const activeSlide: Slide = slides[current] ?? slides[0]!
 
   return (
-    <section className="relative mt-20 w-full overflow-hidden py-8 sm:py-16">
-      {/* Fondo decorativo dinámico */}
-      <div className="pointer-events-none absolute -left-20 -top-20 h-96 w-96 rounded-full bg-primary-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+    <div
+      className="relative w-full overflow-hidden"
+      style={{
+        backgroundColor: activeProduct.bg,
+        transition: "background-color 650ms cubic-bezier(0.4, 0, 0.2, 1)",
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
+      <div className="relative h-screen w-full overflow-hidden">
+        
+        {/* 1. Grain overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 z-50"
+          style={{
+            backgroundImage: `url("${GRAIN_SVG_URI}")`,
+            backgroundSize: "200px 200px",
+            backgroundRepeat: "repeat",
+            opacity: 0.4,
+          }}
+        />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          
-          {/* Columna Izquierda: Información del Slide */}
-          <div className="z-10 flex flex-col justify-center text-center lg:col-span-6 lg:text-left">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSlide.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-              >
-                {/* Badge Kicker */}
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-600 shadow-xs">
-                  <HiOutlineSparkles className="h-4 w-4 text-primary-500" />
-                  <span>{activeSlide.tag}</span>
-                </div>
-
-                {/* Título Principal */}
-                <h1 className="mt-4 text-4xl font-extrabold leading-tight text-primary-500 sm:text-6xl lg:text-7xl">
-                  {activeSlide.subtitle}
-                </h1>
-
-                {/* Subtítulo del Producto */}
-                <h2 className="mt-2 text-xl font-semibold text-slate-800 sm:text-2xl">
-                  {activeSlide.title}
-                </h2>
-
-                {/* Descripción */}
-                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg lg:mx-0">
-                  {activeSlide.description}
-                </p>
-
-                {/* Botones de Acción */}
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                  <Link
-                    href={activeSlide.ctaLink}
-                    className="group inline-flex items-center gap-3 rounded-full bg-primary-500 px-7 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-xl"
-                  >
-                    <span>{activeSlide.ctaText}</span>
-                    <HiOutlineArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-
-                  <Link
-                    href="/catalogo"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-700 shadow-xs transition-all duration-300 hover:bg-slate-100 hover:text-slate-900"
-                  >
-                    <HiOutlineBookOpen className="h-5 w-5 text-primary-500" />
-                    <span>Catálogo 2026</span>
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Controles del Slider e Indicadores */}
-            <div className="mt-10 flex items-center justify-center gap-6 lg:justify-start">
-              <div className="flex gap-2">
-                {slides.map((s, index) => (
-                  <button
-                    key={s.id}
-                    onClick={() => {
-                      setIsAutoPlaying(false)
-                      setCurrent(index)
-                    }}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      index === current ? "w-8 bg-primary-500" : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                    }`}
-                    aria-label={`Ir al slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2 border-l border-slate-200 pl-4">
-                <button
-                  onClick={prevSlide}
-                  className="rounded-full border border-slate-200 bg-white p-2 text-slate-600 shadow-xs transition-colors hover:bg-primary-50 hover:text-primary-500"
-                  aria-label="Anterior"
-                >
-                  <HiOutlineChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="rounded-full border border-slate-200 bg-white p-2 text-slate-600 shadow-xs transition-colors hover:bg-primary-50 hover:text-primary-500"
-                  aria-label="Siguiente"
-                >
-                  <HiOutlineChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Columna Derecha: Imagen Destacada Animada con Círculo de Fondo */}
-          <div className="relative flex items-center justify-center lg:col-span-6">
-            <div className="relative w-full max-w-lg">
-              
-              {/* Círculo de fondo azul institucional flotante */}
-              <div className="absolute inset-0 m-auto aspect-square w-4/5 rounded-full bg-primary-500/95 shadow-2xl transition-transform duration-700 group-hover:scale-105" />
-
-              {/* Imagen del Producto con AnimatePresence */}
-              <div className="relative z-10 aspect-square w-full p-4">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeSlide.id}
-                    initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, rotate: 3 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="relative flex h-full w-full items-center justify-center"
-                  >
-                    <Image
-                      src={activeSlide.image}
-                      alt={activeSlide.title}
-                      width={650}
-                      height={650}
-                      priority
-                      className="max-h-full max-w-full object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Badge Flotante sobre la Imagen */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeSlide.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: 0.2, duration: 0.3 }}
-                  className="absolute bottom-4 left-4 z-20 flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/90 p-3.5 shadow-xl backdrop-blur-md"
-                >
-                  <div className="rounded-xl bg-slate-100 p-2">
-                    {activeSlide.badgeIcon}
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Garantía Solimoderm</p>
-                    <p className="text-sm font-extrabold text-slate-800">{activeSlide.badgeText}</p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-            </div>
-          </div>
-
+        {/* 2. Giant ghost text */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-[18%] z-2 flex select-none items-center justify-center text-center font-black uppercase text-white"
+          style={{
+            fontFamily: "'Anton', sans-serif",
+            fontSize: "clamp(80px, 26vw, 370px)",
+            fontWeight: 900,
+            opacity: 0.28,
+            lineHeight: 1,
+            letterSpacing: "-0.02em",
+            whiteSpace: "nowrap",
+            transition: "opacity 650ms cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
+          {activeProduct.ghostText}
         </div>
+
+        {/* 3. Top-left brand label */}
+        <div className="absolute left-4 top-6 z-[60] text-xs font-semibold uppercase tracking-[0.18em] text-white opacity-90 sm:left-8 sm:top-8">
+          SOLIMODERM | CATÁLOGO 2026
+        </div>
+
+        {/* 4. 3D Layered Carousel Items */}
+        <div className="absolute inset-0 z-3">
+          {PRODUCTS.map((product, index) => {
+            const role = getRole(index)
+            const roleStyle = getRoleStyles(role)
+
+            return (
+              <div
+                key={product.id}
+                style={{
+                  position: "absolute",
+                  aspectRatio: "0.6 / 1",
+                  willChange: "transform, filter, opacity, left, height, bottom",
+                  transition:
+                    "transform 650ms cubic-bezier(0.4, 0, 0.2, 1), filter 650ms cubic-bezier(0.4, 0, 0.2, 1), opacity 650ms cubic-bezier(0.4, 0, 0.2, 1), left 650ms cubic-bezier(0.4, 0, 0.2, 1), height 650ms cubic-bezier(0.4, 0, 0.2, 1), bottom 650ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  ...roleStyle,
+                }}
+              >
+                <Image
+                  src={product.src}
+                  alt={product.title}
+                  fill
+                  priority={role === "center"}
+                  draggable={false}
+                  sizes="(max-width: 640px) 70vw, 50vw"
+                  className="h-full w-full object-contain object-bottom drop-shadow-2xl select-none pointer-events-none"
+                />
+              </div>
+            )
+          })}
+        </div>
+
+        {/* 5. Bottom-left text + Navigation Circular Buttons */}
+        <div className="absolute bottom-6 left-4 z-[60] max-w-[320px] sm:bottom-16 sm:left-20 sm:max-w-md">
+          <p className="mb-2 text-base font-bold uppercase tracking-wider text-white opacity-95 sm:mb-3 sm:text-[22px]">
+            {activeProduct.categoryTag}
+          </p>
+
+          <p className="mb-4 hidden text-xs leading-relaxed text-white opacity-85 sm:mb-6 sm:block sm:text-sm">
+            {activeProduct.description}
+          </p>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => navigate("prev")}
+              disabled={isAnimating}
+              aria-label="Producto anterior"
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-transparent text-white transition-all duration-150 hover:scale-108 hover:bg-white/15 active:scale-95 disabled:opacity-50 sm:h-16 sm:w-16"
+            >
+              <HiOutlineArrowLeft className="h-6 w-6 stroke-[2.25] text-white sm:h-7 sm:w-7" />
+            </button>
+
+            <button
+              onClick={() => navigate("next")}
+              disabled={isAnimating}
+              aria-label="Producto siguiente"
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-transparent text-white transition-all duration-150 hover:scale-108 hover:bg-white/15 active:scale-95 disabled:opacity-50 sm:h-16 sm:w-16"
+            >
+              <HiOutlineArrowRight className="h-6 w-6 stroke-[2.25] text-white sm:h-7 sm:w-7" />
+            </button>
+          </div>
+        </div>
+
+        {/* 6. Bottom-right link "DESCUBRIR PRODUCTO" */}
+        <div className="absolute bottom-6 right-4 z-[60] sm:bottom-16 sm:right-12">
+          <Link
+            href={activeProduct.link}
+            className="group flex items-center gap-2 font-normal uppercase text-white opacity-95 transition-opacity duration-200 hover:opacity-100"
+            style={{
+              fontFamily: "'Anton', sans-serif",
+              fontSize: "clamp(22px, 4.5vw, 56px)",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            <span>DESCUBRIR PRODUCTO</span>
+            <HiOutlineArrowRight className="h-6 w-6 shrink-0 stroke-[2.25] transition-transform duration-300 group-hover:translate-x-2 sm:h-9 sm:w-9" />
+          </Link>
+        </div>
+
       </div>
-    </section>
+    </div>
   )
 }
 
