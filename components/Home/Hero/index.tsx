@@ -134,10 +134,10 @@ const Hero: React.FC = () => {
       case "center":
         return {
           transform: `translateX(-50%) scale(${isMobile ? 1.15 : 1.55})`,
-          filter: "blur(0px) drop-shadow(0 20px 30px rgba(0,0,0,0.3))",
+          filter: "blur(0px) drop-shadow(0 20px 30px rgba(0,0,0,0.35))",
           opacity: 1,
           zIndex: 20,
-          left: "50%",
+          left: isMobile ? "50%" : "65%",
           height: isMobile ? "52%" : "78%",
           bottom: isMobile ? "18%" : "2%",
         }
@@ -145,9 +145,9 @@ const Hero: React.FC = () => {
         return {
           transform: "translateX(-50%) scale(1)",
           filter: "blur(2.5px)",
-          opacity: 0.7,
+          opacity: 0.65,
           zIndex: 10,
-          left: isMobile ? "18%" : "28%",
+          left: isMobile ? "18%" : "48%",
           height: isMobile ? "15%" : "24%",
           bottom: isMobile ? "28%" : "12%",
         }
@@ -155,9 +155,9 @@ const Hero: React.FC = () => {
         return {
           transform: "translateX(-50%) scale(1)",
           filter: "blur(2.5px)",
-          opacity: 0.7,
+          opacity: 0.65,
           zIndex: 10,
-          left: isMobile ? "82%" : "72%",
+          left: isMobile ? "82%" : "84%",
           height: isMobile ? "15%" : "24%",
           bottom: isMobile ? "28%" : "12%",
         }
@@ -165,9 +165,9 @@ const Hero: React.FC = () => {
         return {
           transform: "translateX(-50%) scale(1)",
           filter: "blur(4px)",
-          opacity: 0.35,
+          opacity: 0.3,
           zIndex: 5,
-          left: "50%",
+          left: isMobile ? "50%" : "65%",
           height: isMobile ? "12%" : "18%",
           bottom: isMobile ? "30%" : "14%",
         }
