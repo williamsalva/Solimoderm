@@ -21,7 +21,7 @@ interface HeroProduct {
 const PRODUCTS: HeroProduct[] = [
   {
     id: 0,
-    src: "/img/hero-ovalin.png",
+    src: "/img/ovalinProd.png",
     bg: "#16466F", // Solimoderm Primary Blue
     ghostText: "SOLIMODERM",
     categoryTag: "OVALINES DE LUJO",
@@ -34,7 +34,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 1,
-    src: "/img/espejoProd.png",
+    src: "/img/hero-espejo-clean-transparent.png",
     bg: "#0E385D", // Solimoderm Midnight Blue
     ghostText: "ESPEJOS LED",
     categoryTag: "ESPEJOS MULTIFUNCIÓN",
@@ -47,7 +47,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 2,
-    src: "/img/hero-mueble.png",
+    src: "/img/hero-mueble-set-transparent.png",
     bg: "#1A507D", // Solimoderm Royal Slate
     ghostText: "MUEBLES 2026",
     categoryTag: "MUEBLES DE BAÑO",
@@ -60,7 +60,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 3,
-    src: "/img/tarjas/tarja-submontable-con-accesorios-t7546-kit-satin.webp",
+    src: "/img/hero-tarja-transparent.png",
     bg: "#113D63", // Solimoderm Deep Marine
     ghostText: "TARJAS CHEF",
     categoryTag: "TARJAS DE COCINA",
