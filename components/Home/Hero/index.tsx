@@ -21,55 +21,68 @@ interface HeroProduct {
 const PRODUCTS: HeroProduct[] = [
   {
     id: 0,
-    src: "/img/ovalinProd.png",
-    bg: "#16466F", // Solimoderm Primary Blue
-    ghostText: "SOLIMODERM",
-    categoryTag: "OVALINES DE LUJO",
-    title: "OVALÍN MARMOLEADO",
-    subtitle: "Cristal Templado Premium",
-    description:
-      "Artesanía en cristal templado con acabado marmoleado exclusivo, superficie anti-manchas y durabilidad inigualable.",
-    specPill: "✨ Mármol & Cristal",
-    link: "/ovalines",
-  },
-  {
-    id: 1,
-    src: "/img/hero-espejo-clean-transparent.png",
-    bg: "#0E385D", // Solimoderm Midnight Blue
-    ghostText: "ESPEJOS LED",
-    categoryTag: "ESPEJOS MULTIFUNCIÓN",
-    title: "ESPEJO INTELLIGENT",
-    subtitle: "Touch & Bluetooth",
-    description:
-      "Iluminación LED ambiental dimeable, altavoces Bluetooth estéreo integrados y sistema antivaho de un solo toque.",
-    specPill: "💡 Sensor Touch LED",
-    link: "/espejos",
-  },
-  {
-    id: 2,
     src: "/img/hero-mueble-set-transparent.png",
-    bg: "#1A507D", // Solimoderm Royal Slate
-    ghostText: "MUEBLES 2026",
-    categoryTag: "MUEBLES DE BAÑO",
-    title: "SET FLOTANTE PREMIUM",
-    subtitle: "Diseño Impermeable",
+    bg: "#16466F", // Solimoderm Primary Blue
+    ghostText: "MUEBLES DE BAÑO",
+    categoryTag: "LÍNEA DE BAÑO",
+    title: "MUEBLES DE BAÑO",
+    subtitle: "Diseño Vanguardista e Impermeable",
     description:
-      "Muebles con acabados resistentes a la humedad, lavabos integrados y amplios compartimentos de almacenamiento.",
-    specPill: "🛡️ 100% Resistente al Agua",
+      "Muebles flotantes y de piso fabricados con materiales de alta resistencia a la humedad, lavabos integrados y amplios compartimentos de almacenamiento.",
+    specPill: "🛡️ 100% Resistentes al Agua",
     link: "/muebles-de-bano",
   },
   {
-    id: 3,
+    id: 1,
     src: "/img/hero-tarja-transparent.png",
-    bg: "#113D63", // Solimoderm Deep Marine
-    ghostText: "TARJAS CHEF",
-    categoryTag: "TARJAS DE COCINA",
-    title: "TARJA T7546 SATÍN",
-    subtitle: "Con Lavacopas Automático",
+    bg: "#113D63", // Solimoderm Marine Blue
+    ghostText: "TARJAS DE COCINA",
+    categoryTag: "LÍNEA DE COCINA",
+    title: "TARJAS DE COCINA",
+    subtitle: "Acero Inoxidable & Accesorios",
     description:
-      "Acero inoxidable calibre 18 de alta resistencia con kit completo: lavacopas automático, tabla de picar y contracanasta.",
+      "Fregaderos y tarjas de submontar o sobreponer en acero inoxidable calibre premium con recubrimiento antirruido y kits completos de accesorios.",
     specPill: "💧 Acero Inoxidable Calibre 18",
-    link: "/producto/tarja-submontable-con-accesorios-t7546-kit-satin",
+    link: "/tarjas",
+  },
+  {
+    id: 2,
+    src: "/img/hero-espejo-clean-transparent.png",
+    bg: "#0E385D", // Solimoderm Midnight Blue
+    ghostText: "ESPEJOS LED",
+    categoryTag: "TECNOLOGÍA & ILUMINACIÓN",
+    title: "ESPEJOS LED & BLUETOOTH",
+    subtitle: "Touch & Antivaho Inteligente",
+    description:
+      "Espejos multifunción con luz LED dimeable de alta definición, altavoces Bluetooth estéreo e interruptores táctiles con desempañante.",
+    specPill: "💡 Luz LED & Bluetooth",
+    link: "/espejos",
+  },
+  {
+    id: 3,
+    src: "/img/ovalinProd.png",
+    bg: "#1A507D", // Solimoderm Royal Slate
+    ghostText: "OVALINES DE LUJO",
+    categoryTag: "DISEÑO EXCLUSIVO",
+    title: "OVALINES DE LUJO",
+    subtitle: "Mármol y Cristal Templado",
+    description:
+      "Lavabos de sobreponer en acabado marmoleado, cristal templado y cerámica esmaltada con acabados de fácil limpieza y resistencia superior.",
+    specPill: "✨ Mármol & Cristal Templado",
+    link: "/ovalines",
+  },
+  {
+    id: 4,
+    src: "/img/hero-monomando-transparent.png",
+    bg: "#124B78", // Solimoderm Deep Ocean
+    ghostText: "MONOMANDOS",
+    categoryTag: "GRIFERÍA PREMIUM",
+    title: "MONOMANDOS Y GRIFERÍA",
+    subtitle: "Estilos Modernos para Baño y Cocina",
+    description:
+      "Mezcladoras y monomandos en acabados mate, dorado, negro y satinado con cartuchos cerámicos de alta durabilidad y ahorro de agua.",
+    specPill: "🚰 Cartucho Cerámico Larga Vida",
+    link: "/monomandos",
   },
 ]
 
@@ -109,7 +122,7 @@ const Hero: React.FC = () => {
         if (direction === "next") {
           return (prev + 1) % PRODUCTS.length
         }
-        return (prev + 3) % PRODUCTS.length
+        return (prev + 4) % PRODUCTS.length
       })
 
       if (animationTimerRef.current) clearTimeout(animationTimerRef.current)
@@ -124,8 +137,8 @@ const Hero: React.FC = () => {
 
   const getRole = (index: number): "center" | "left" | "right" | "back" => {
     if (index === activeIndex) return "center"
-    if (index === (activeIndex + 3) % 4) return "left"
-    if (index === (activeIndex + 1) % 4) return "right"
+    if (index === (activeIndex + 4) % 5) return "left"
+    if (index === (activeIndex + 1) % 5) return "right"
     return "back"
   }
 
@@ -214,7 +227,7 @@ const Hero: React.FC = () => {
           {activeProduct.ghostText}
         </div>
 
-        {/* Dedicated 3D Carousel Showcase Box (Lower position & ~2x larger product scale) */}
+        {/* Dedicated 3D Carousel Showcase Box */}
         <div className="pointer-events-none absolute inset-x-2 bottom-[4%] top-[36%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[38%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
@@ -284,7 +297,7 @@ const Hero: React.FC = () => {
               href={activeProduct.link}
               className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-bold text-primary-500 shadow-lg transition-all duration-300 hover:bg-cyan-50 hover:shadow-xl sm:px-6 sm:py-3 sm:text-sm"
             >
-              <span>Explorar Producto</span>
+              <span>Explorar Categoría</span>
               <HiOutlineArrowRight className="h-4 w-4" />
             </Link>
 
@@ -310,7 +323,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Right Slide Counter (01 / 04) */}
+        {/* Bottom Right Slide Counter (01 / 05) */}
         <div className="absolute bottom-6 right-4 z-[60] sm:bottom-10 sm:right-12">
           <div className="flex items-center gap-2 font-black uppercase tracking-widest text-white/80">
             <span className="text-xl text-white sm:text-2xl">0{activeIndex + 1}</span>
