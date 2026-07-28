@@ -50,7 +50,7 @@ const PRODUCTS: HeroProduct[] = [
   },
   {
     id: 2,
-    src: "/hero/Espejos.png",
+    src: "/hero/espejoe.png",
     bg: "#0E385D", // Solimoderm Midnight Blue
     ghostText: "ESPEJOS LED",
     ghostFontSize: "clamp(34px, 10vw, 145px)",
