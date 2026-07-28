@@ -73,21 +73,24 @@ export default function VideoShowcase() {
           
           {/* Text Content & Logo */}
           <div className="lg:col-span-5 text-white">
-            {/* Solimoderm Logo Header */}
-            <div className="mb-5 flex items-center gap-3">
+            
+            {/* Large Official Solimoderm Logo Card */}
+            <div className="mb-6 inline-block rounded-2xl bg-white p-3.5 sm:p-4 shadow-xl border border-white/30">
               <Image
-                src="/img/logo-white.png"
+                src="/img/solimoderm.png"
                 alt="Solimoderm Logo"
-                width={190}
-                height={50}
-                className="h-9 w-auto object-contain brightness-200"
+                width={280}
+                height={140}
+                className="h-12 sm:h-16 w-auto object-contain"
               />
             </div>
 
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-extrabold text-white backdrop-blur-md mb-4">
-              <HiOutlineSparkles className="h-4 w-4 text-amber-300" />
-              COLECCIÓN 2026 EN ACCIÓN
-            </span>
+            <div className="mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-extrabold text-white backdrop-blur-md">
+                <HiOutlineSparkles className="h-4 w-4 text-amber-300" />
+                COLECCIÓN 2026 EN ACCIÓN
+              </span>
+            </div>
 
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
               Muebles Flotantes & <span className="text-cyan-200">Acabados Reales</span>
