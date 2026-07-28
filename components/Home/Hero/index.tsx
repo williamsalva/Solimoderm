@@ -177,47 +177,47 @@ const Hero: React.FC = () => {
     switch (role) {
       case "center":
         return {
-          transform: `translate(-50%, -50%) scale(${isMobile ? 0.95 : 1.3})`,
+          transform: `translate(-50%, -50%) scale(${isMobile ? 1.25 : 1.3})`,
           filter: "blur(0px) drop-shadow(0 25px 35px rgba(0,0,0,0.35))",
           opacity: 1,
           zIndex: 20,
           left: "50%",
-          top: isMobile ? "36%" : "54%",
-          width: isMobile ? "75%" : "90%",
-          height: isMobile ? "75%" : "90%",
+          top: isMobile ? "44%" : "54%",
+          width: isMobile ? "85%" : "90%",
+          height: isMobile ? "85%" : "90%",
         }
       case "left":
         return {
-          transform: "translate(-50%, -50%) scale(0.55)",
+          transform: "translate(-50%, -50%) scale(0.65)",
           filter: "blur(3px)",
-          opacity: 0.4,
+          opacity: 0.45,
           zIndex: 10,
-          left: isMobile ? "8%" : "15%",
-          top: isMobile ? "36%" : "54%",
-          width: isMobile ? "50%" : "60%",
-          height: isMobile ? "50%" : "60%",
+          left: isMobile ? "10%" : "15%",
+          top: isMobile ? "44%" : "54%",
+          width: isMobile ? "55%" : "60%",
+          height: isMobile ? "55%" : "60%",
         }
       case "right":
         return {
-          transform: "translate(-50%, -50%) scale(0.55)",
+          transform: "translate(-50%, -50%) scale(0.65)",
           filter: "blur(3px)",
-          opacity: 0.4,
+          opacity: 0.45,
           zIndex: 10,
-          left: isMobile ? "92%" : "85%",
-          top: isMobile ? "36%" : "54%",
-          width: isMobile ? "50%" : "60%",
-          height: isMobile ? "50%" : "60%",
+          left: isMobile ? "90%" : "85%",
+          top: isMobile ? "44%" : "54%",
+          width: isMobile ? "55%" : "60%",
+          height: isMobile ? "55%" : "60%",
         }
       case "back":
         return {
-          transform: "translate(-50%, -50%) scale(0.35)",
+          transform: "translate(-50%, -50%) scale(0.42)",
           filter: "blur(5px)",
           opacity: 0.2,
           zIndex: 5,
           left: "50%",
-          top: isMobile ? "25%" : "38%",
-          width: isMobile ? "38%" : "45%",
-          height: isMobile ? "38%" : "45%",
+          top: isMobile ? "30%" : "38%",
+          width: isMobile ? "42%" : "45%",
+          height: isMobile ? "42%" : "45%",
         }
     }
   }
@@ -265,7 +265,7 @@ const Hero: React.FC = () => {
         </AnimatePresence>
 
         {/* Dedicated 3D Carousel Showcase Box */}
-        <div className="pointer-events-none absolute inset-x-2 top-[18%] bottom-[48%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
+        <div className="pointer-events-none absolute inset-x-2 top-[20%] bottom-[36%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
               const role = getRole(index)
@@ -300,8 +300,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Left Side Glassmorphic Product Card (Raised to bottom-[72px] on mobile to clear browser address bar) */}
-        <div className="absolute bottom-[72px] left-3 right-3 z-[60] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
+        {/* Left Side Glassmorphic Product Card (Elevated with bottom-28 and z-[80] to clear mobile address bar completely) */}
+        <div className="absolute bottom-28 left-3 right-3 z-[80] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProduct.id}
