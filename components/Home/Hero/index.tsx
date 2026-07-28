@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import React, { useCallback, useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import { HiOutlineArrowLeft, HiOutlineArrowRight, HiOutlineSparkles } from "react-icons/hi2"
 
 interface HeroProduct {
@@ -100,6 +101,7 @@ const Hero: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const [isAnimating, setIsAnimating] = useState<boolean>(false)
   const [isMobile, setIsMobile] = useState<boolean>(false)
+  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null)
   const animationTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
@@ -119,6 +121,26 @@ const Hero: React.FC = () => {
     })
   }, [])
 
+  // Reset 8-second auto-play timer
+  const resetAutoPlay = useCallback(() => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current)
+    }
+    autoPlayTimerRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % PRODUCTS.length)
+    }, 8000)
+  }, [])
+
+  // Start 8-second auto-play timer on mount
+  useEffect(() => {
+    resetAutoPlay()
+    return () => {
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current)
+      }
+    }
+  }, [resetAutoPlay])
+
   const navigate = useCallback(
     (direction: "next" | "prev") => {
       if (isAnimating) return
@@ -131,22 +153,16 @@ const Hero: React.FC = () => {
         return (prev + 4) % PRODUCTS.length
       })
 
+      // Restart fresh 8s timer on user manual interaction
+      resetAutoPlay()
+
       if (animationTimerRef.current) clearTimeout(animationTimerRef.current)
       animationTimerRef.current = setTimeout(() => {
         setIsAnimating(false)
       }, 650)
     },
-    [isAnimating]
+    [isAnimating, resetAutoPlay]
   )
-
-  // Auto-advance slide every 8 seconds (8000ms)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % PRODUCTS.length)
-    }, 8000)
-
-    return () => clearInterval(timer)
-  }, [])
 
   const activeProduct = PRODUCTS[activeIndex] ?? PRODUCTS[0]!
 
@@ -227,20 +243,26 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text (Con amplio margen debajo de la Navbar) */}
-        <div
-          className="pointer-events-none absolute inset-x-0 top-[25%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
-          style={{
-            fontSize: activeProduct.ghostFontSize,
-            lineHeight: 1,
-            whiteSpace: "nowrap",
-            width: "100%",
-            overflow: "hidden",
-            transition: "opacity 650ms cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        >
-          {activeProduct.ghostText}
-        </div>
+        {/* Giant Architectural Ghost Text (Animado en cada cambio de slide) */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeProduct.id}
+            initial={{ opacity: 0, y: -20, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 1.04 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute inset-x-0 top-[25%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
+            style={{
+              fontSize: activeProduct.ghostFontSize,
+              lineHeight: 1,
+              whiteSpace: "nowrap",
+              width: "100%",
+              overflow: "hidden",
+            }}
+          >
+            {activeProduct.ghostText}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Dedicated 3D Carousel Showcase Box */}
         <div className="pointer-events-none absolute inset-x-2 top-[24%] bottom-[36%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
@@ -280,31 +302,41 @@ const Hero: React.FC = () => {
 
         {/* Left Side Glassmorphic Product Card (Fluid width on mobile) */}
         <div className="absolute bottom-5 left-4 right-4 z-[60] rounded-3xl border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
-          <div className="mb-2 flex flex-wrap items-center gap-2 sm:mb-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md sm:px-3 sm:py-1 sm:text-xs">
-              <HiOutlineSparkles className="h-3 w-3 text-amber-300 sm:h-3.5 sm:w-3.5" />
-              COLECCIÓN 2026
-            </span>
-            <span className="inline-flex rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-cyan-200 sm:px-3 sm:py-1 sm:text-xs">
-              {activeProduct.categoryTag}
-            </span>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeProduct.id}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="mb-2 flex flex-wrap items-center gap-2 sm:mb-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md sm:px-3 sm:py-1 sm:text-xs">
+                  <HiOutlineSparkles className="h-3 w-3 text-amber-300 sm:h-3.5 sm:w-3.5" />
+                  COLECCIÓN 2026
+                </span>
+                <span className="inline-flex rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-cyan-200 sm:px-3 sm:py-1 sm:text-xs">
+                  {activeProduct.categoryTag}
+                </span>
+              </div>
 
-          <h1 className="text-xl font-black leading-tight text-white sm:text-3xl">
-            {activeProduct.title}
-          </h1>
+              <h1 className="text-xl font-black leading-tight text-white sm:text-3xl">
+                {activeProduct.title}
+              </h1>
 
-          <p className="mt-0.5 text-xs font-bold text-cyan-200 sm:mt-1 sm:text-sm">
-            {activeProduct.subtitle}
-          </p>
+              <p className="mt-0.5 text-xs font-bold text-cyan-200 sm:mt-1 sm:text-sm">
+                {activeProduct.subtitle}
+              </p>
 
-          <p className="mt-2 hidden text-xs leading-relaxed text-white/90 sm:block sm:mt-3 sm:text-sm">
-            {activeProduct.description}
-          </p>
+              <p className="mt-2 hidden text-xs leading-relaxed text-white/90 sm:block sm:mt-3 sm:text-sm">
+                {activeProduct.description}
+              </p>
 
-          <div className="mt-2.5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-primary-500 shadow-md sm:mt-3 sm:px-3.5 sm:py-1.5 sm:text-xs">
-            <span>{activeProduct.specPill}</span>
-          </div>
+              <div className="mt-2.5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-primary-500 shadow-md sm:mt-3 sm:px-3.5 sm:py-1.5 sm:text-xs">
+                <span>{activeProduct.specPill}</span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Buttons & Slide Navigation */}
           <div className="mt-4 flex items-center justify-between gap-3 sm:mt-5 sm:justify-start sm:gap-4">
