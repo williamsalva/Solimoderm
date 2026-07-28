@@ -3,6 +3,7 @@ import CallToAction from "components/Home/CallToAction"
 import CardProducts from "components/Home/CardProducts"
 import Hero from "components/Home/Hero"
 import UsDifferent from "components/Home/UsDifferent"
+import VideoShowcase from "components/Home/VideoShowcase"
 import Layout from "components/Layout"
 import FaqSection from "components/FaqSection"
 
@@ -37,12 +38,17 @@ export default function Web() {
         </div>
       </section>
 
+      {/* Video Demostración Colección 2026 antes de ¿Por qué somos diferentes? */}
+      <VideoShowcase />
+
       <section>
         <UsDifferent />
       </section>
+
       <div className="my-16 flex items-center justify-center">
         <FaqSection />
       </div>
+
       <section className="my-8 mx-4 sm:my-16 sm:mx-16 overflow-hidden rounded-[28px] sm:rounded-[50px]">
         <CallToAction />
       </section>
