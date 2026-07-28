@@ -177,45 +177,45 @@ const Hero: React.FC = () => {
     switch (role) {
       case "center":
         return {
-          transform: `translate(-50%, -50%) scale(${isMobile ? 1.05 : 1.3})`,
+          transform: `translate(-50%, -50%) scale(${isMobile ? 0.95 : 1.3})`,
           filter: "blur(0px) drop-shadow(0 25px 35px rgba(0,0,0,0.35))",
           opacity: 1,
           zIndex: 20,
           left: "50%",
-          top: isMobile ? "40%" : "54%",
+          top: isMobile ? "36%" : "54%",
           width: isMobile ? "75%" : "90%",
           height: isMobile ? "75%" : "90%",
         }
       case "left":
         return {
-          transform: "translate(-50%, -50%) scale(0.6)",
+          transform: "translate(-50%, -50%) scale(0.55)",
           filter: "blur(3px)",
           opacity: 0.4,
           zIndex: 10,
           left: isMobile ? "8%" : "15%",
-          top: isMobile ? "40%" : "54%",
+          top: isMobile ? "36%" : "54%",
           width: isMobile ? "50%" : "60%",
           height: isMobile ? "50%" : "60%",
         }
       case "right":
         return {
-          transform: "translate(-50%, -50%) scale(0.6)",
+          transform: "translate(-50%, -50%) scale(0.55)",
           filter: "blur(3px)",
           opacity: 0.4,
           zIndex: 10,
           left: isMobile ? "92%" : "85%",
-          top: isMobile ? "40%" : "54%",
+          top: isMobile ? "36%" : "54%",
           width: isMobile ? "50%" : "60%",
           height: isMobile ? "50%" : "60%",
         }
       case "back":
         return {
-          transform: "translate(-50%, -50%) scale(0.38)",
+          transform: "translate(-50%, -50%) scale(0.35)",
           filter: "blur(5px)",
           opacity: 0.2,
           zIndex: 5,
           left: "50%",
-          top: isMobile ? "28%" : "38%",
+          top: isMobile ? "25%" : "38%",
           width: isMobile ? "38%" : "45%",
           height: isMobile ? "38%" : "45%",
         }
@@ -251,7 +251,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 1.04 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute inset-x-0 top-[20%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
+            className="pointer-events-none absolute inset-x-0 top-[18%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
             style={{
               fontSize: activeProduct.ghostFontSize,
               lineHeight: 1,
@@ -265,7 +265,7 @@ const Hero: React.FC = () => {
         </AnimatePresence>
 
         {/* Dedicated 3D Carousel Showcase Box */}
-        <div className="pointer-events-none absolute inset-x-2 top-[22%] bottom-[42%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
+        <div className="pointer-events-none absolute inset-x-2 top-[18%] bottom-[48%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
               const role = getRole(index)
@@ -300,8 +300,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Left Side Glassmorphic Product Card */}
-        <div className="absolute bottom-4 left-3 right-3 z-[60] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
+        {/* Left Side Glassmorphic Product Card (Raised to bottom-[72px] on mobile to clear browser address bar) */}
+        <div className="absolute bottom-[72px] left-3 right-3 z-[60] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProduct.id}
