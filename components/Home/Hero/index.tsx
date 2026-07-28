@@ -227,9 +227,9 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text */}
+        {/* Giant Architectural Ghost Text (Con amplio margen debajo de la Navbar) */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[18%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[18%]"
+          className="pointer-events-none absolute inset-x-0 top-[25%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
           style={{
             fontSize: activeProduct.ghostFontSize,
             lineHeight: 1,
@@ -243,7 +243,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Dedicated 3D Carousel Showcase Box */}
-        <div className="pointer-events-none absolute inset-x-2 top-[22%] bottom-[38%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[38%]">
+        <div className="pointer-events-none absolute inset-x-2 top-[24%] bottom-[36%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
               const role = getRole(index)

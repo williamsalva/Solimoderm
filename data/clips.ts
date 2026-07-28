@@ -35,22 +35,12 @@ export function getClipList(): ClipItem[] {
   const clipsDir = path.join(process.cwd(), "public", "clips")
   const videoFiles = getAllVideoFiles(clipsDir)
 
-  // Prioritize 2026 videos first
-  videoFiles.sort((a, b) => {
-    const a2026 = a.relativePath.startsWith("2026")
-    const b2026 = b.relativePath.startsWith("2026")
-    if (a2026 && !b2026) return -1
-    if (!a2026 && b2026) return 1
-    return a.relativePath.localeCompare(b.relativePath)
-  })
+  videoFiles.sort((a, b) => a.relativePath.localeCompare(b.relativePath))
 
-  return videoFiles.map((file, index) => {
-    const is2026 = file.relativePath.startsWith("2026")
-    return {
-      id: `clip-${index}`,
-      url: `/clips/${file.relativePath}`,
-      folder: is2026 ? "2026" : "General",
-      title: is2026 ? "Clip Colección 2026" : "Solimoderm Clip",
-    }
-  })
+  return videoFiles.map((file, index) => ({
+    id: `clip-${index}`,
+    url: `/clips/${file.relativePath}`,
+    folder: "2026",
+    title: `Clip Colección 2026 #${index + 1}`,
+  }))
 }
