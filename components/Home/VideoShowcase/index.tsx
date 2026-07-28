@@ -88,33 +88,34 @@ export default function VideoShowcase() {
             <div className="mb-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-extrabold text-white backdrop-blur-md">
                 <HiOutlineSparkles className="h-4 w-4 text-amber-300" />
-                COLECCIÓN 2026 EN ACCIÓN
+                VENTA AL MAYOREO & DISTRIBUCIÓN
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-              Muebles Flotantes & <span className="text-cyan-200">Acabados Reales</span>
+              ¿Eres Mayorista? <br />
+              <span className="text-cyan-200">Tu Tienda de Baño y Cocina Está Aquí</span>
             </h2>
 
             <p className="mt-3 text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
-              Observa en este vídeo la calidad de nuestros muebles flotantes impermeables y tarjas de cocina. Fabricados con tecnología de alta densidad resistente al agua, lavabos integrados y compartimentos de amplio almacenamiento.
+              Sabemos que tú también eres una marca. Fabricamos y distribuimos productos de calidad comprobada a precios mayoristas: desde tarjas, espejos y monomandos, hasta muebles listos para exhibir. Productos que se venden solos y precios diseñados para darte el máximo margen.
             </p>
 
             {/* Feature Pills */}
             <div className="mt-5 flex flex-col gap-2.5">
               <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3.5 py-2.5 backdrop-blur-md">
-                <span className="text-lg">🛡️</span>
+                <span className="text-lg">💼</span>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">100% Resistentes al Agua</h4>
-                  <p className="text-[11px] text-cyan-200">No se inflan ni se deforman ante la humedad constante</p>
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Calidad que te Deja Ganancia</h4>
+                  <p className="text-[11px] text-cyan-200">Precios especiales pensados para distribuidores y tiendas</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3.5 py-2.5 backdrop-blur-md">
-                <span className="text-lg">✨</span>
+                <span className="text-lg">🚚</span>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Cierre Suave & Silencioso</h4>
-                  <p className="text-[11px] text-cyan-200">Herrajes de alta gama y compartimentos funcionales</p>
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Proveedor 100% Confiable</h4>
+                  <p className="text-[11px] text-cyan-200">Muebles, tarjas, espejos y grifería listos para exhibir</p>
                 </div>
               </div>
             </div>
