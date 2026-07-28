@@ -177,47 +177,47 @@ const Hero: React.FC = () => {
     switch (role) {
       case "center":
         return {
-          transform: "translate(-50%, -50%) scale(1.15)",
+          transform: `translate(-50%, -50%) scale(${isMobile ? 1.05 : 1.3})`,
           filter: "blur(0px) drop-shadow(0 25px 35px rgba(0,0,0,0.35))",
           opacity: 1,
           zIndex: 20,
           left: "50%",
-          top: isMobile ? "44%" : "54%",
-          width: isMobile ? "80%" : "90%",
-          height: isMobile ? "80%" : "90%",
+          top: isMobile ? "40%" : "54%",
+          width: isMobile ? "75%" : "90%",
+          height: isMobile ? "75%" : "90%",
         }
       case "left":
         return {
-          transform: "translate(-50%, -50%) scale(0.65)",
+          transform: "translate(-50%, -50%) scale(0.6)",
           filter: "blur(3px)",
-          opacity: 0.45,
+          opacity: 0.4,
           zIndex: 10,
-          left: isMobile ? "10%" : "15%",
-          top: isMobile ? "44%" : "54%",
-          width: isMobile ? "55%" : "60%",
-          height: isMobile ? "55%" : "60%",
+          left: isMobile ? "8%" : "15%",
+          top: isMobile ? "40%" : "54%",
+          width: isMobile ? "50%" : "60%",
+          height: isMobile ? "50%" : "60%",
         }
       case "right":
         return {
-          transform: "translate(-50%, -50%) scale(0.65)",
+          transform: "translate(-50%, -50%) scale(0.6)",
           filter: "blur(3px)",
-          opacity: 0.45,
+          opacity: 0.4,
           zIndex: 10,
-          left: isMobile ? "90%" : "85%",
-          top: isMobile ? "44%" : "54%",
-          width: isMobile ? "55%" : "60%",
-          height: isMobile ? "55%" : "60%",
+          left: isMobile ? "92%" : "85%",
+          top: isMobile ? "40%" : "54%",
+          width: isMobile ? "50%" : "60%",
+          height: isMobile ? "50%" : "60%",
         }
       case "back":
         return {
-          transform: "translate(-50%, -50%) scale(0.42)",
+          transform: "translate(-50%, -50%) scale(0.38)",
           filter: "blur(5px)",
           opacity: 0.2,
           zIndex: 5,
           left: "50%",
-          top: isMobile ? "32%" : "38%",
-          width: isMobile ? "40%" : "45%",
-          height: isMobile ? "40%" : "45%",
+          top: isMobile ? "28%" : "38%",
+          width: isMobile ? "38%" : "45%",
+          height: isMobile ? "38%" : "45%",
         }
     }
   }
@@ -230,8 +230,8 @@ const Hero: React.FC = () => {
         transition: "background-color 650ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      {/* Navbar clearance via pt-20 / pt-24 */}
-      <div className="relative min-h-screen w-full overflow-hidden pt-20 sm:pt-24">
+      {/* Navbar clearance via pt-20 / pt-24 with dynamic 100dvh for mobile browsers */}
+      <div className="relative min-h-screen min-h-[100dvh] w-full overflow-hidden pt-20 sm:pt-24">
         
         {/* Grain Noise Overlay */}
         <div
@@ -243,7 +243,7 @@ const Hero: React.FC = () => {
           }}
         />
 
-        {/* Giant Architectural Ghost Text (Animado en cada cambio de slide) */}
+        {/* Giant Architectural Ghost Text */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProduct.id}
@@ -251,7 +251,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 1.04 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute inset-x-0 top-[25%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
+            className="pointer-events-none absolute inset-x-0 top-[20%] z-2 flex select-none justify-center text-center font-black uppercase tracking-wider text-white/15 sm:top-[24%]"
             style={{
               fontSize: activeProduct.ghostFontSize,
               lineHeight: 1,
@@ -265,7 +265,7 @@ const Hero: React.FC = () => {
         </AnimatePresence>
 
         {/* Dedicated 3D Carousel Showcase Box */}
-        <div className="pointer-events-none absolute inset-x-2 top-[24%] bottom-[36%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
+        <div className="pointer-events-none absolute inset-x-2 top-[22%] bottom-[42%] z-3 flex items-center justify-center sm:bottom-[4%] sm:left-[36%] sm:right-4 sm:top-[40%]">
           <div className="relative flex h-full w-full max-w-2xl items-center justify-center">
             {PRODUCTS.map((product, index) => {
               const role = getRole(index)
@@ -300,8 +300,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Left Side Glassmorphic Product Card (Fluid width on mobile) */}
-        <div className="absolute bottom-5 left-4 right-4 z-[60] rounded-3xl border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
+        {/* Left Side Glassmorphic Product Card */}
+        <div className="absolute bottom-4 left-3 right-3 z-[60] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProduct.id}
@@ -310,21 +310,21 @@ const Hero: React.FC = () => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="mb-2 flex flex-wrap items-center gap-2 sm:mb-3">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md sm:px-3 sm:py-1 sm:text-xs">
+              <div className="mb-1.5 flex flex-wrap items-center gap-1.5 sm:mb-3 sm:gap-2">
+                <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/15 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md sm:px-3 sm:py-1 sm:text-xs">
                   <HiOutlineSparkles className="h-3 w-3 text-amber-300 sm:h-3.5 sm:w-3.5" />
                   COLECCIÓN 2026
                 </span>
-                <span className="inline-flex rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-cyan-200 sm:px-3 sm:py-1 sm:text-xs">
+                <span className="inline-flex rounded-full bg-white/20 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-cyan-200 sm:px-3 sm:py-1 sm:text-xs">
                   {activeProduct.categoryTag}
                 </span>
               </div>
 
-              <h1 className="text-xl font-black leading-tight text-white sm:text-3xl">
+              <h1 className="text-lg font-black leading-tight text-white sm:text-3xl">
                 {activeProduct.title}
               </h1>
 
-              <p className="mt-0.5 text-xs font-bold text-cyan-200 sm:mt-1 sm:text-sm">
+              <p className="mt-0.5 text-[11px] font-bold text-cyan-200 sm:mt-1 sm:text-sm">
                 {activeProduct.subtitle}
               </p>
 
@@ -332,48 +332,48 @@ const Hero: React.FC = () => {
                 {activeProduct.description}
               </p>
 
-              <div className="mt-2.5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-primary-500 shadow-md sm:mt-3 sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3 py-0.5 text-[10px] font-extrabold text-primary-500 shadow-md sm:mt-3 sm:px-3.5 sm:py-1.5 sm:text-xs">
                 <span>{activeProduct.specPill}</span>
               </div>
             </motion.div>
           </AnimatePresence>
 
           {/* Buttons & Slide Navigation */}
-          <div className="mt-4 flex items-center justify-between gap-3 sm:mt-5 sm:justify-start sm:gap-4">
+          <div className="mt-3 flex items-center justify-between gap-2 sm:mt-5 sm:justify-start sm:gap-4">
             <Link
               href={activeProduct.link}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-bold text-primary-500 shadow-lg transition-all duration-300 hover:bg-cyan-50 hover:shadow-xl sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[11px] font-bold text-primary-500 shadow-lg transition-all duration-300 hover:bg-cyan-50 hover:shadow-xl sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
             >
               <span>Explorar Categoría</span>
               <HiOutlineArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </Link>
 
-            <div className="flex items-center gap-1.5 border-l border-white/20 pl-2 sm:gap-2 sm:pl-3">
+            <div className="flex items-center gap-1 border-l border-white/20 pl-2 sm:gap-2 sm:pl-3">
               <button
                 onClick={() => navigate("prev")}
                 disabled={isAnimating}
                 aria-label="Anterior"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-200 hover:bg-white/25 active:scale-95 disabled:opacity-50 sm:h-10 sm:w-10"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-200 hover:bg-white/25 active:scale-95 disabled:opacity-50 sm:h-10 sm:w-10"
               >
-                <HiOutlineArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+                <HiOutlineArrowLeft className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
               </button>
 
               <button
                 onClick={() => navigate("next")}
                 disabled={isAnimating}
                 aria-label="Siguiente"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-200 hover:bg-white/25 active:scale-95 disabled:opacity-50 sm:h-10 sm:w-10"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-200 hover:bg-white/25 active:scale-95 disabled:opacity-50 sm:h-10 sm:w-10"
               >
-                <HiOutlineArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                <HiOutlineArrowRight className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Slide Counter (Top Right on Mobile to avoid card collision) */}
+        {/* Slide Counter */}
         <div className="absolute top-22 right-4 z-[60] sm:top-auto sm:bottom-10 sm:right-12">
           <div className="flex items-center gap-1.5 font-black uppercase tracking-widest text-white/80">
-            <span className="text-lg text-white sm:text-2xl">0{activeIndex + 1}</span>
+            <span className="text-base text-white sm:text-2xl">0{activeIndex + 1}</span>
             <span className="text-xs text-white/50 sm:text-sm">/ 0{PRODUCTS.length}</span>
           </div>
         </div>
