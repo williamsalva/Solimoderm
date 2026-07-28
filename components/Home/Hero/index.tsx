@@ -23,7 +23,7 @@ interface HeroProduct {
 const PRODUCTS: HeroProduct[] = [
   {
     id: 0,
-    src: "/hero/mueble-de-baño.png",
+    src: "/hero/muebles-de-bano.png",
     bg: "#16466F", // Solimoderm Primary Blue
     ghostText: "MUEBLES DE BAÑO",
     ghostFontSize: "clamp(24px, 7vw, 105px)",
