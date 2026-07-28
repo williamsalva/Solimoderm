@@ -300,8 +300,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Left Side Glassmorphic Product Card (Elevated with bottom-28 and z-[80] to clear mobile address bar completely) */}
-        <div className="absolute bottom-28 left-3 right-3 z-[80] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
+        {/* Left Side Glassmorphic Product Card (Elevated with bottom-36 and z-[80] on mobile) */}
+        <div className="absolute bottom-36 left-3 right-3 z-[80] rounded-3xl border border-white/20 bg-white/10 p-3.5 shadow-2xl backdrop-blur-xl sm:bottom-10 sm:left-12 sm:right-auto sm:max-w-md sm:p-7">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProduct.id}
