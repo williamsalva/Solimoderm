@@ -66,52 +66,52 @@ export default function VideoShowcase() {
   }
 
   return (
-    <section className="my-12 sm:my-20 mx-4 sm:mx-16">
+    <section className="my-8 sm:my-14 mx-4 sm:mx-16">
       {/* Solimoderm Brand Solid Primary Blue Box */}
-      <div className="relative overflow-hidden rounded-[28px] sm:rounded-[44px] bg-[#16466F] p-6 sm:p-12 shadow-xl border border-white/10">
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+      <div className="relative overflow-hidden rounded-[28px] sm:rounded-[44px] bg-[#16466F] p-6 sm:p-8 shadow-xl border border-white/10">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
           
           {/* Text Content & Logo */}
           <div className="lg:col-span-5 text-white">
             
             {/* Large Official Solimoderm Logo Card */}
-            <div className="mb-6 inline-block rounded-2xl bg-white p-3.5 sm:p-4 shadow-xl border border-white/30">
+            <div className="mb-5 inline-block rounded-2xl bg-white p-4 sm:p-5 shadow-xl border border-white/30">
               <Image
                 src="/img/solimoderm.png"
                 alt="Solimoderm Logo"
-                width={280}
-                height={140}
-                className="h-12 sm:h-16 w-auto object-contain"
+                width={380}
+                height={190}
+                className="h-20 sm:h-24 w-auto object-contain"
               />
             </div>
 
-            <div className="mb-4">
+            <div className="mb-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-extrabold text-white backdrop-blur-md">
                 <HiOutlineSparkles className="h-4 w-4 text-amber-300" />
                 COLECCIÓN 2026 EN ACCIÓN
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
               Muebles Flotantes & <span className="text-cyan-200">Acabados Reales</span>
             </h2>
 
-            <p className="mt-4 text-sm sm:text-base text-white/90 font-medium leading-relaxed">
+            <p className="mt-3 text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
               Observa en este vídeo la calidad de nuestros muebles flotantes impermeables y tarjas de cocina. Fabricados con tecnología de alta densidad resistente al agua, lavabos integrados y compartimentos de amplio almacenamiento.
             </p>
 
             {/* Feature Pills */}
-            <div className="mt-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md">
-                <span className="text-xl">🛡️</span>
+            <div className="mt-5 flex flex-col gap-2.5">
+              <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3.5 py-2.5 backdrop-blur-md">
+                <span className="text-lg">🛡️</span>
                 <div>
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider">100% Resistentes al Agua</h4>
                   <p className="text-[11px] text-cyan-200">No se inflan ni se deforman ante la humedad constante</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md">
-                <span className="text-xl">✨</span>
+              <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3.5 py-2.5 backdrop-blur-md">
+                <span className="text-lg">✨</span>
                 <div>
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider">Cierre Suave & Silencioso</h4>
                   <p className="text-[11px] text-cyan-200">Herrajes de alta gama y compartimentos funcionales</p>
@@ -120,9 +120,9 @@ export default function VideoShowcase() {
             </div>
           </div>
 
-          {/* Video Container Frame */}
+          {/* Video Container Frame (Capped height max-h-[500px] for elegant section proportion) */}
           <div className="lg:col-span-7 flex justify-center">
-            <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black group">
+            <div className="relative w-full max-w-xs sm:max-w-sm max-h-[500px] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black group">
               <video
                 ref={videoRef}
                 src={VIDEO_SRC}
@@ -133,7 +133,7 @@ export default function VideoShowcase() {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 onClick={togglePlay}
-                className="w-full aspect-[9/16] object-cover cursor-pointer"
+                className="w-full max-h-[500px] aspect-[9/16] object-cover cursor-pointer"
               />
 
               {/* Mute/Unmute Audio Button */}
@@ -155,8 +155,8 @@ export default function VideoShowcase() {
                   onClick={togglePlay}
                   className="absolute inset-0 z-20 flex items-center justify-center bg-black/30 cursor-pointer transition-opacity duration-300 hover:bg-black/40"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-primary-500 shadow-2xl backdrop-blur-md transition-transform duration-200 hover:scale-110">
-                    <HiPlay className="h-8 w-8 ml-1" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-primary-500 shadow-2xl backdrop-blur-md transition-transform duration-200 hover:scale-110">
+                    <HiPlay className="h-7 w-7 ml-0.5" />
                   </div>
                 </div>
               )}
