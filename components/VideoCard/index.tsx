@@ -10,7 +10,7 @@ type Props = {
 export default function VideoCard({ url }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(false)
 
   // Pause all other videos on the page when this video starts playing
   const pauseOtherVideos = () => {
@@ -38,7 +38,12 @@ export default function VideoCard({ url }: Props) {
     if (video.paused) {
       pauseOtherVideos()
       video.muted = isMuted
-      video.play().catch(() => {})
+      video.play().catch(() => {
+        // Fallback for strict browser policies if gesture wasn't detected
+        video.muted = true
+        setIsMuted(true)
+        video.play().catch(() => {})
+      })
     } else {
       video.pause()
     }
